@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.add-list {
+  float:right;
+  padding: 13px 32px;
+  position:relative;
+  top:20px;
+  border-radius:30px;
+  color:#fff;
+  font-weight:700;
+  text-transform:uppercase;
+  font-size:11px;
+}
+.add-list span {
+  padding-left:4px;
+  font-weight:700;
+}

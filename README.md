@@ -21,4 +21,30 @@ Things you may want to cover:
 
 * Deployment instructions
 
+## install
+
+use docker
+1. build
+```
+$ docker-compose build
+```
+2. up
+```
+$ docker-compose up
+```
+
+3. db create
+```
+$ docker-compose run web rails db:create
+```
+
+4. db migrate
+```
+$ docker-compose run web rails db:migrate
+```
+
+5. View the Rails page
+
+``` http://localhost:3000 ```
+
 * ...

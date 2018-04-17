@@ -11,102 +11,146 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :home_type %>
-    <%= form.text_field :home_type, id: :room_home_type %>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field form-control">
+          <%= form.label :listing_name %>
+          <%= form.text_field :listing_name, id: :room_listing_name %>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="field form-control">
+        <%= form.label :home_type %>
+        <%= form.text_field :home_type, id: :room_home_type %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :room_type %>
-    <%= form.text_field :room_type, id: :room_room_type %>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <div class="field form-control">
+        <%= form.label :room_type %>
+        <%= form.text_field :room_type, id: :room_room_type %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :summary %>
-    <%= form.text_area :summary, id: :room_summary %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :summary %>
+          <%= form.text_area :summary, id: :room_summary %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :address %>
+          <%= form.text_field :address, id: :room_address %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :is_tv %>
+          <%= form.check_box :is_tv, id: :room_is_tv %>
+        </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :room_address %>
-  </div>
+        <div class="field">
+          <%= form.label :is_kitchen %>
+          <%= form.check_box :is_kitchen, id: :room_is_kitchen %>
+        </div>
 
-  <div class="field">
-    <%= form.label :is_tv %>
-    <%= form.check_box :is_tv, id: :room_is_tv %>
-  </div>
+        <div class="field">
+          <%= form.label :is_air %>
+          <%= form.check_box :is_air, id: :room_is_air %>
+        </div>
 
-  <div class="field">
-    <%= form.label :is_kitchen %>
-    <%= form.check_box :is_kitchen, id: :room_is_kitchen %>
-  </div>
+        <div class="field">
+          <%= form.label :is_heating %>
+          <%= form.check_box :is_heating, id: :room_is_heating %>
+        </div>
 
-  <div class="field">
-    <%= form.label :is_air %>
-    <%= form.check_box :is_air, id: :room_is_air %>
-  </div>
+        <div class="field">
+          <%= form.label :is_internet %>
+          <%= form.check_box :is_internet, id: :room_is_internet %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :accomodate %>
+          <%= form.number_field :accomodate, id: :room_accomodate %>
+        </div>
 
-  <div class="field">
-    <%= form.label :is_heating %>
-    <%= form.check_box :is_heating, id: :room_is_heating %>
-  </div>
+        <div class="field">
+          <%= form.label :bedroom %>
+          <%= form.number_field :bedroom, id: :room_bedroom %>
+        </div>
 
-  <div class="field">
-    <%= form.label :is_internet %>
-    <%= form.check_box :is_internet, id: :room_is_internet %>
-  </div>
+        <div class="field">
+          <%= form.label :bathroom %>
+          <%= form.number_field :bathroom, id: :room_bathroom %>
+        </div>
 
-  <div class="field">
-    <%= form.label :accomodate %>
-    <%= form.number_field :accomodate, id: :room_accomodate %>
-  </div>
+        <div class="field">
+          <%= form.label :sheet %>
+          <%= form.number_field :sheet, id: :room_sheet %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :bedroom %>
-    <%= form.number_field :bedroom, id: :room_bedroom %>
-  </div>
 
-  <div class="field">
-    <%= form.label :bathroom %>
-    <%= form.number_field :bathroom, id: :room_bathroom %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :price %>
+          <%= form.number_field :price, id: :room_price %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :sheet %>
-    <%= form.number_field :sheet, id: :room_sheet %>
-  </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price, id: :room_price %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :active %>
+          <%= form.check_box :active, id: :room_active %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active, id: :room_active %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :user_id %>
+          <%= form.number_field :user_id, id: :room_user_id %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id, id: :room_user_id %>
-  </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="field">
+          <%= form.label :latitude %>
+          <%= form.text_field :latitude, id: :room_latitude %>
+        </div>
 
-  <div class="field">
-    <%= form.label :listing_name %>
-    <%= form.text_field :listing_name, id: :room_listing_name %>
-  </div>
+        <div class="field">
+          <%= form.label :longitude %>
+          <%= form.text_field :longitude, id: :room_longitude %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude, id: :room_latitude %>
-  </div>
 
-  <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude, id: :room_longitude %>
-  </div>
-
-  <div class="actions">
+  <div class="actions btn btn-primary btn-lg btn-block">
     <%= form.submit %>
   </div>
 <% end %>

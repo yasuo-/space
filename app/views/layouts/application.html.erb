@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Space</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/head'%>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div>
-    <% if user_signed_in? %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign in', user_facebook_omniauth_authorize_path %>
-    <% end %>
-    </div>
-    <%= yield %>
+    <%= render 'host/header' %>
+      <%= yield %>
+    <%= render 'host/footer' %>
   </body>
 </html>
