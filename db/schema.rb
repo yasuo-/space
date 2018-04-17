@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416155425) do
+ActiveRecord::Schema.define(version: 20180417002152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "host_photos", force: :cascade do |t|
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["room_id"], name: "index_host_photos_on_room_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.integer "price", default: 0
+    t.integer "total", default: 0
+    t.string "menu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_reservations_on_room_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "home_type", limit: 50
+    t.string "room_type", limit: 50
+    t.text "summary"
+    t.string "address", limit: 50
+    t.boolean "is_tv", default: false, null: false
+    t.boolean "is_kitchen", default: false, null: false
+    t.boolean "is_air", default: false, null: false
+    t.boolean "is_heating", default: false, null: false
+    t.boolean "is_internet", default: false, null: false
+    t.integer "accomodate", default: 0
+    t.integer "bedroom", default: 0
+    t.integer "bathroom", default: 0
+    t.integer "sheet", default: 0
+    t.integer "price", default: 0
+    t.boolean "active", default: false, null: false
+    t.bigint "user_id"
+    t.string "listing_name", limit: 50
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,4 +96,8 @@ ActiveRecord::Schema.define(version: 20180416155425) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "host_photos", "rooms"
+  add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "rooms", "users"
 end

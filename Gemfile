@@ -47,7 +47,9 @@ gem 'devise_token_auth'
 
 # クロスドメイン対策のgem
 gem 'rack-cors'
-
+# S3などに画像up
+gem "paperclip"
+gem 'fog'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do

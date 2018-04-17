@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
   }
+  resources :reservations
+  resources :rooms
 end
