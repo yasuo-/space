@@ -14,18 +14,155 @@
  *= require_self
  */
 
-.add-list {
-  float:right;
-  padding: 13px 32px;
-  position:relative;
-  top:20px;
-  border-radius:30px;
-  color:#fff;
-  font-weight:700;
-  text-transform:uppercase;
-  font-size:11px;
+.fl-wrap {
+	/*float:left;*/
+	width: 100%;
+	position: relative;
 }
+
+.add-list {
+	float: right;
+	padding: 13px 32px;
+	position: relative;
+	top: 20px;
+	border-radius: 30px;
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
 .add-list span {
-  padding-left:4px;
-  font-weight:700;
+	padding-left: 4px;
+	font-weight: 700;
+}
+
+.profile-edit-page-header {
+	display: flex;
+	width: 100%;
+	position: relative;
+	padding: 15px 30px;
+	border-radius: 6px;
+	border: 1px solid #eee;
+	margin-bottom: 30px;
+	background: #F8FBFE;
+}
+
+.profile-edit-page-header h2 {
+	text-align: left;
+	font-size: 26px;
+	color: #334e6f;
+	font-weight: 500;
+	float: left;
+}
+
+.profile-edit-page-header .breadcrumbs {
+	float: right;
+	position: relative;
+	top: 8px;
+}
+
+.profile-edit-page-header .breadcrumbs a,
+.profile-edit-page-header .breadcrumbs span {
+	float: left;
+	margin-left: 24px;
+	position: relative;
+	font-weight: 500;
+}
+
+.profile-edit-page-header .breadcrumbs a:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -16px;
+	margin-top: -3px;
+	width: 6px;
+	height: 6px;
+	border-radius: 100%;
+}
+
+.user-profile-menu-wrap {
+	padding: 15px 20px;
+	background: #F8FBFE;
+	border: 1px solid #eee;
+	border-radius: 4px;
+}
+
+.user-profile-menu-wrap:before,
+.user-profile-menu-wrap:after {
+	position: absolute;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	content: "\f013";
+	color: #999;
+}
+
+.user-profile-menu-wrap:before {
+	top: 20px;
+	right: 20px;
+	font-size: 33px;
+	opacity: 0.3;
+}
+
+.user-profile-menu-wrap:after {
+	top: 40px;
+	right: 43px;
+	font-size: 23px;
+	opacity: 0.2;
+}
+
+.title-l {
+	text-align: left;
+	font-size: 18px;
+	color: #98AAB8;
+	font-weight: 700;
+	padding-bottom: 20px;
+}
+
+.title-m {
+	text-align: left;
+	font-size: 16px;
+	color: #98AAB8;
+	font-weight: 600;
+	padding-bottom: 20px;
+}
+
+.text-l {
+	font-weight: 600;
+	color: #50596E;
+	position: relative;
+	min-width: 90px;
+	font-size: 16px;
+	padding: 5px;
+}
+
+.text-m {
+	font-weight: 600;
+	color: #50596E;
+	position: relative;
+	min-width: 90px;
+	font-size: 13px;
+	padding: 5px;
+}
+
+.form-control textarea,
+.form-control input[type="text"],
+.form-control input[type=email],
+.form-control input[type=password],
+.form-control input[type=button] {
+	float: left;
+	border: 1px solid #eee;
+	background: #f9f9f9;
+	width: 100%;
+	padding: 15px 20px 15px 55px;
+	border-radius: 6px;
+	color: #666;
+	font-size: 13px;
+	-webkit-appearance: none;
+}
+
+.form-control input {
+	margin-bottom: 20px;
 }

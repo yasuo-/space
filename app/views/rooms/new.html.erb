@@ -2,9 +2,11 @@
   <%= render 'shared/host/container_path' %>
 
   <div class="row">
-    <%= render 'shared/host/container_side_menu' %>
-    <div class="col-md-9 order-md-2">
-      <h3 class="mb-3">Basic Informations</h3>
+    <div class="col-md-4 order-md-1">
+      <%= render 'shared/host/container_side_menu' %>
+    </div>
+    <div class="col-md-8 order-md-2">
+      <h3 class="title-l">Basic Informations</h3>
       <%= render 'form', room: @room %>
       <%= link_to 'Back', rooms_path %>
     </div>
