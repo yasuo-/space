@@ -44,7 +44,8 @@ gem 'omniauth-google-oauth2'
 
 gem 'devise'
 gem 'devise_token_auth'
-
+gem 'knock'
+gem 'jwt'
 # クロスドメイン対策のgem
 gem 'rack-cors'
 

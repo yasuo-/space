@@ -1,0 +1,112 @@
+<%= form_with(model: listing, local: true) do |form| %>
+  <% if listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :home_type %>
+    <%= form.text_field :home_type, id: :listing_home_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listing_type %>
+    <%= form.text_field :listing_type, id: :listing_listing_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary %>
+    <%= form.text_area :summary, id: :listing_summary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :listing_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_tv %>
+    <%= form.check_box :is_tv, id: :listing_is_tv %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_kitchen %>
+    <%= form.check_box :is_kitchen, id: :listing_is_kitchen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_air %>
+    <%= form.check_box :is_air, id: :listing_is_air %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_heating %>
+    <%= form.check_box :is_heating, id: :listing_is_heating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_internet %>
+    <%= form.check_box :is_internet, id: :listing_is_internet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accomodate %>
+    <%= form.number_field :accomodate, id: :listing_accomodate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bedroom %>
+    <%= form.number_field :bedroom, id: :listing_bedroom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bathroom %>
+    <%= form.number_field :bathroom, id: :listing_bathroom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sheet %>
+    <%= form.number_field :sheet, id: :listing_sheet %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, id: :listing_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active, id: :listing_active %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :listing_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :listing_name %>
+    <%= form.text_field :listing_name, id: :listing_listing_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :listing_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :listing_longitude %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

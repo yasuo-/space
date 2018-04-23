@@ -1,0 +1,24 @@
+<h1>Pages#index</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+<div id="logged-out">
+    <h1>space-kit</h1>
+    <h3>Sign in to access your space-kit</h3>
+    <div id="firebaseui-auth-container"></div>
+  </div>
+
+  <div id="logged-in">
+    <h1>Welcome, <span id="user"></span>!</h1>
+    <h3>Enter a note and save it to your</h3>
+  <div id="form">
+    <form action="" method="post">
+      <div class="form-group">
+        <textarea id="note-content"></textarea>
+      </div>
+      <div class="form-group">
+        <button id="add-note">Save note</button>
+        <button id="sign-out">Sign out</button> 
+      </div>
+    </form>
+  </div>
+
+  <div id="notes-container"></div>
