@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   get 'manegelisting/:id/map',      to: 'listings#map',      as: 'manage_listing_map'
   get 'manegelisting/:id/publish',  to: 'listings#publish',  as: 'manage_listing_publish'
 
+  # stripe connect oauth path
+  get '/connect/oauth',             to: 'stripe#oauth',       as: 'stripe_oauth'
+  get '/connect/confirm',           to: 'stripe#confirm',     as: 'stripe_confirm'
+  get '/connect/deauthorize',       to: 'stripe#deauthorize', as: 'stripe_deauthorize'
+
 
   namespace :host do
     resources :users
