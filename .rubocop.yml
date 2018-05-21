@@ -2,6 +2,10 @@
 #  rubocop-airbnb:
 #  - config/default.yml
 
+inherit_gem:
+  meowcop:
+    - config/rubocop.yml
+
 inherit_from:
   - .rubocop_todo.yml
 
