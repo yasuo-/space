@@ -1,0 +1,14 @@
+<section class="content">
+  <%= render 'shared/host/container_path' %>
+
+  <div class="row">
+    <div class="col-md-4 order-md-1">
+      <%= render 'shared/host/container_side_menu' %>
+    </div>
+    <div class="col-md-8 order-md-2">
+      <h3 class="title-l">Basic Informations</h3>
+      <%= render 'form', host_room: @host_room %>
+      <%= link_to 'Back', host_rooms_path %>
+    </div>
+  </div>
+</section>

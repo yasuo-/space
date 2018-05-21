@@ -29,7 +29,6 @@ RSpec.describe "rooms/edit", type: :view do
     render
 
     assert_select "form[action=?][method=?]", room_path(@room), "post" do
-
       assert_select "input[name=?]", "room[home_type]"
 
       assert_select "input[name=?]", "room[room_type]"

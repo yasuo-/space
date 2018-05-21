@@ -1,6 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  # before_action :set_request_variant
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  private
+
+  # user-agent
+  def request_from_smartphone?
+    Woothee.parse(request.user_agent)[:category] == :smartphone
+  end
+
+  def set_request_variant
+    request.variant = (request_from_smartphone? ? :sp : :pc)
+  end
 
   protected
 

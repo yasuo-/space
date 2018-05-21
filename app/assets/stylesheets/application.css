@@ -12,7 +12,32 @@
  *
  *= require_tree .
  *= require_self
+ *= require toastr
  */
+
+.container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.bd-main {
+  overflow: hidden;
+  position: relative;
+  margin-top: 75px;
+}
+
+.card-media {
+  display: flex;
+  text-align: left;
+}
+.card-media-img {
+  width: 87px;
+  height: 100%;
+}
+
+.card-media-content {
+  padding-top: 26px;
+}
 
 .fl-wrap {
 	/*float:left;*/
@@ -165,4 +190,13 @@
 
 .form-control input {
 	margin-bottom: 20px;
+}
+
+
+/**
+ header
+**/
+
+.navbar-item, .navbar-link {
+  padding: 0 .75rem;
 }

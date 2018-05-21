@@ -16,7 +16,7 @@ RSpec.describe "reservations/index", type: :view do
         :price => 2,
         :total => 3,
         :menu => "Menu"
-      )
+      ),
     ])
   end
 

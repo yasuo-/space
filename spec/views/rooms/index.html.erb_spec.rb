@@ -44,7 +44,7 @@ RSpec.describe "rooms/index", type: :view do
         :listing_name => "Listing Name",
         :latitude => 8.5,
         :longitude => 9.5
-      )
+      ),
     ])
   end
 
