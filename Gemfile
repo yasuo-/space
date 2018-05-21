@@ -67,6 +67,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rubocop', require: false
   gem 'rubocop-airbnb'
+  gem 'meowcop'
   gem 'rails-erd'
   gem 'rails-controller-testing'
 end
