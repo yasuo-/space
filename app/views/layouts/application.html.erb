@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Space</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/head'%>
   </head>
 
   <body>
-    <%= yield %>
+  <!-- flashにメッセージがある時 -->
+  <% unless flash.empty? %>
+      <script type="text/javascript">
+        <% flash.each do |f| %>
+        <% type = f[0].to_s.gsub('alert','error').gsub('notice','info') %>
+        toastr['<%= type %>']('<%= f[1] %>');
+        <% end %>
+      </script>
+  <% end %>
+    <%= render 'shared/header' %>
+    <main class="bd-main">
+      <%= yield %>
+    </main>
   </body>
 </html>

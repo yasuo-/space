@@ -1,0 +1,8 @@
+linter:
+rubocop:
+  root_dir: 'space'
+
+phpmd:
+  root_dir: 'space'
+  options:
+    rule: 'phpmd.xml'

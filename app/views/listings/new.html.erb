@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="text-center">
+            <span style="font-size:24px;">リスティングを掲載する</span>
+          </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="panel-body">
+          <%= form_for @listing do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>タイトル</label>
+                  <%= f.text_field :listing_name, placeholder: "リスティングタイトルを記載しましょう", class: "form-control", required: "true" %>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <label>店舗の種類</label>
+                  <%= f.select :home_type, [["一軒家","一軒家"], ["店舗","店舗"], ["アパート","アパート"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+            <br>
+              <br>
+
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                  <label>内容の種類</label>
+                  <%= f.select :listing_type, [["宿泊","宿泊"], ["食事","食事"], ["体験","体験"], ["その他","その他"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+            <br>
+              <br>
+              <br>
+
+            <div class="actions">
+              <%= link_to '戻る', listings_path, class: "btn btn-danger" %>
+              <%= f.submit "更新", class: "btn btn-danger" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

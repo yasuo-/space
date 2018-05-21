@@ -1,0 +1,54 @@
+
+  <div class="fixed-bar fl-wrap" style="z-index: auto; position: relative; top: 0px;">
+    <div class="user-profile-menu-wrap fl-wrap">
+      <div class="user-profile-menu">
+        <h3 class="title-m">Main</h3>
+        <ul>
+          <li>
+            <%= link_to edit_host_user_path(:id), class: "text-m" do %>
+              <i class="fa fa-user-o"></i> Edit profile
+            <% end %>
+          </li>
+          <li>
+            <a href="dashboard-messages.html" class="text-m">
+              <i class="fa fa-envelope-o"></i> Messages <span>0</span>
+            </a>
+          </li>
+          <li>
+            <%= link_to edit_user_password_path(:id), class: "text-m" do%>
+              <i class="fa fa-unlock-alt"></i>Change Password
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <div class="user-profile-menu">
+        <h3 class="title-m">Listings</h3>
+        <ul>
+          <li>
+            <%= link_to host_rooms_path, class: "text-m" do %>
+              <i class="fa fa-th-list"></i> My listigs
+            <% end %>
+          </li>
+          <li>
+            <%= link_to host_rooms_path, class: "text-m" do %>
+              <i class="fa fa-calendar-check-o"></i> Bookings <span>2</span>
+            <% end %>
+          </li>
+          <li>
+            <a href="dashboard-review.html" class="text-m">
+              <i class="fa fa-comments-o"></i> Reviews </a>
+          </li>
+          <li>
+            <%= link_to new_host_room_path, class: "text-m user-profile-act" do %>
+              <i class="fa fa-plus-square-o"></i> Add New
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <% if user_signed_in? %>
+        <%= link_to 'Log Out', destroy_user_session_path, class: "log-out-btn", method: :delete %>
+      <% end %>
+    </div>
+  </div><div style="display: none; width: 260px; height: 487px; float: none;"></div>

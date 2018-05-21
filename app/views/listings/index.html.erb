@@ -1,0 +1,109 @@
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center">
+          <span style="font-size:18px;">リスティング一覧</span>
+        </div>
+      </div>
+      <ul class="ul-unstyled">
+        <% @listings.each do |listing| %>
+          <li class="panel-body">
+            <div class="row-table">
+              <div class="col-md-3 col-sm-3 col-middle row-space-2">
+                <div class="panel-list-img text-center">
+                  <% if listing.photos.length > 0 %>
+                    <%= image_tag listing.photos[0].image.url(:medium)  %>
+                  <% else %>
+                    <img src="http://placehold.jp/150x50.png">
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="col-sm-7 col-lg-7 col-middle row-space-2">
+                <span class="listing-title"><%= listing.listing_name%></span>
+              </div>
+
+              <div class="col-md-3 col-sm-3 col-middle row-space-1">
+                <%= link_to "編集する", manage_listing_basics_path(listing), class: "btn btn-success pull-right" %>
+                <% if false %>
+                <%= link_to '削除する', listing, method: :delete, data: { confirm: '削除してもよろしいですか?' }, class: "btn btn-error pull-right" %>
+                <% end %>
+              </div>
+
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<% if false %>
+
+<h1>Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Home type</th>
+      <th>Room type</th>
+      <th>Summary</th>
+      <th>Address</th>
+      <th>Is tv</th>
+      <th>Is kitchen</th>
+      <th>Is air</th>
+      <th>Is heating</th>
+      <th>Is internet</th>
+      <th>Accomodate</th>
+      <th>Bedroom</th>
+      <th>Bathroom</th>
+      <th>Sheet</th>
+      <th>Price</th>
+      <th>Active</th>
+      <th>User</th>
+      <th>Listing name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.home_type %></td>
+        <td><%= listing.room_type %></td>
+        <td><%= listing.summary %></td>
+        <td><%= listing.address %></td>
+        <td><%= listing.is_tv %></td>
+        <td><%= listing.is_kitchen %></td>
+        <td><%= listing.is_air %></td>
+        <td><%= listing.is_heating %></td>
+        <td><%= listing.is_internet %></td>
+        <td><%= listing.accomodate %></td>
+        <td><%= listing.bedroom %></td>
+        <td><%= listing.bathroom %></td>
+        <td><%= listing.sheet %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.active %></td>
+        <td><%= listing.user_id %></td>
+        <td><%= listing.listing_name %></td>
+        <td><%= listing.latitude %></td>
+        <td><%= listing.longitude %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_room_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+    <%= link_to 'New Room', new_room_path %>
+<% end %>

@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="col-md-3">
+    <%= render 'shared/verticalnavbar'%>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center">
+          <span style="font-size:24px;">設備の編集</span>
+        </div>
+      </div>
+
+      <div class="panel-body">
+
+        <%= form_for @listing do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :is_tv %>
+                  <%= f.check_box :is_tv, id: :room_is_tv %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :is_kitchen %>
+                  <%= f.check_box :is_kitchen, id: :room_is_kitchen %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :is_air %>
+                  <%= f.check_box :is_air, id: :room_is_air %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :is_heating %>
+                  <%= f.check_box :is_heating, id: :room_is_heating %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :is_internet %>
+                  <%= f.check_box :is_internet, id: :room_is_internet %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :accomodate %>
+                  <%= f.number_field :accomodate, id: :room_accomodate %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :bedroom %>
+                  <%= f.number_field :bedroom, id: :room_bedroom %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :bathroom %>
+                  <%= f.number_field :bathroom, id: :room_bathroom %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.label :sheet %>
+                  <%= f.number_field :sheet, id: :room_sheet %>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "更新", class: "btn btn-danger" %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

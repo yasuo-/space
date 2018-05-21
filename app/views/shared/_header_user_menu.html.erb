@@ -1,0 +1,19 @@
+<div class="navbar-item">
+  <div class="field is-grouped">
+    <p class="control">
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'button is-primary' do %>
+          <span class="icon">
+            <i class="fas fa-sign-out-alt"></i>
+          </span><span>Sign out</span>
+        <% end %>
+      <% else %>
+        <%= link_to user_facebook_omniauth_authorize_path, class: 'button is-primary' do %>
+          <span class="icon">
+            <i class="fas fa-sign-in-alt"></i>
+          </span><span>Sign in</span>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+</div>

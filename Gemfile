@@ -44,9 +44,17 @@ gem 'omniauth-google-oauth2'
 
 gem 'devise'
 gem 'devise_token_auth'
+# toast
+gem 'toastr-rails'
 
 # クロスドメイン対策のgem
 gem 'rack-cors'
+# S3などに画像up
+gem "paperclip"
+gem 'fog'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+# user-agent判定
+gem 'woothee'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
