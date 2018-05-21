@@ -1,5 +1,10 @@
-require:
-  - rubocop-airbnb
+#inherit_gem:
+#  rubocop-airbnb:
+#  - .rubocop.yml
+
+inherit_gem:
+  meowcop:
+    - config/rubocop.yml
 
 inherit_from:
   - .rubocop_todo.yml
