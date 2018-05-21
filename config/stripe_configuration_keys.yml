@@ -1,0 +1,9 @@
+development:
+  stripe_secret_key: ENV['STRIPE_SECRET_KEY']
+  stripe_publishable_key: ENV['STRIPE_PUBLISHABLE_KEY']
+  stripe_connect_client_id: ENV['STRIPE_CONNECT_CLIENT_ID']
+
+production:
+  stripe_secret_key: ENV['STRIPE_SECRET_KEY']
+  stripe_publishable_key: ENV['STRIPE_PUBLISHABLE_KEY']
+  stripe_connect_client_id: ENV['STRIPE_CONNECT_CLIENT_ID']
