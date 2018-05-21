@@ -11,7 +11,11 @@
       </div>
 
       <div class="panel-body">
-
+        <% if @user.connected? %>
+          <%= render 'stripe/setting' %>
+        <% else %>
+          <%= render 'stripe/connect' %>
+        <% end %>
       </div>
     </div>
   </div>

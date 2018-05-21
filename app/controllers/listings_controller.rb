@@ -87,6 +87,11 @@ class ListingsController < ApplicationController
   def publish
   end
 
+  def bankaccount
+    @user = @listing.user
+    session[:listing_id] = @listing.id
+  end
+
   def not_checked
     @listing = Listing.find(params[:listing_id])
     @listing.update(not_checked: params[:not_checked])
