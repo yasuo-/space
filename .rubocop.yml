@@ -1,5 +1,5 @@
-require:
-  - rubocop-airbnb
+# require:
+#  - rubocop-airbnb
 
 inherit_gem:
   rubocop-airbnb:
