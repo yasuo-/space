@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416155425) do
+ActiveRecord::Schema.define(version: 20180417002152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listings", force: :cascade do |t|
+    t.string "home_type", limit: 50
+    t.string "listing_type", limit: 50
+    t.text "summary"
+    t.string "address", limit: 50
+    t.boolean "is_tv", default: false, null: false
+    t.boolean "is_kitchen", default: false, null: false
+    t.boolean "is_air", default: false, null: false
+    t.boolean "is_heating", default: false, null: false
+    t.boolean "is_internet", default: false, null: false
+    t.integer "accomodate", default: 0
+    t.integer "bedroom", default: 0
+    t.integer "bathroom", default: 0
+    t.integer "sheet", default: 0
+    t.integer "price", default: 0
+    t.boolean "active", default: false, null: false
+    t.bigint "user_id"
+    t.string "listing_name", limit: 50
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.bigint "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["listing_id"], name: "index_photos_on_listing_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "listing_id"
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.integer "price", default: 0
+    t.integer "total", default: 0
+    t.string "menu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_reservations_on_listing_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,22 +78,18 @@ ActiveRecord::Schema.define(version: 20180416155425) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
-    t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
     t.string "image"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "listings", "users"
+  add_foreign_key "photos", "listings"
+  add_foreign_key "reservations", "listings"
+  add_foreign_key "reservations", "users"
 end

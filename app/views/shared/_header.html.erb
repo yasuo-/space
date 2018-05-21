@@ -1,0 +1,25 @@
+<header class="navbar has-shadow is-fixed-top is-transparent">
+  <div>
+    <%= link_to root_path, class: "navbar-item" do %>
+      <%= image_tag("logo.png") %>
+    <% end %>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-end">
+      <%= render partial: 'shared/header_nav' %>
+      <%= render partial: 'shared/header_user_menu' %>
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <%= link_to new_listing_path, class: 'button is-primary' do %>
+              <span class="icon">
+                <i class="fas fa-plus"></i>
+              </span><span>Add Listing</span>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="col-md-3">
+    <%= render 'shared/verticalnavbar'%>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-center">
+          <span style="font-size:24px;">Calendar</span>
+        </div>
+      </div>
+
+      <div class="panel-body">
+        <%= form_for([@listing, @listing.reservations.new]) do |f| %>
+            <div class="row row-space-top-4">
+              <div class="col-md-8 col-md-offset-2 calendar">
+                <label>預かりができない日を指定</label>
+                <div id="datepicker"></div>
+              </div>
+            </div>
+            <br>
+            <hr>
+
+            <%= f.hidden_field :listing_id, value: @listing.id %>
+            <%= f.hidden_field :selectedDates, value: "",id:"selectedDates" %>
+
+
+            <div class="actions">
+              <%= f.submit "更新", class: "btn btn-danger" %>
+            </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

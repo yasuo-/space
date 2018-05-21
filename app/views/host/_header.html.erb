@@ -1,0 +1,16 @@
+<header class="navbar is-transparent">
+  <div>
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#page-top">
+        <img src="images/logo.png" alt="">Logo</a>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <%= render partial: 'shared/host/header_nav' %>
+      <%= render partial: 'shared/host/header_user_menu' %>
+      <%= link_to new_host_room_path, class: "add-list" do %>
+          Add Listing<span><i class="fa fa-plus"></i></span>
+      <% end %>
+    </div>
+  </div>
+</header>

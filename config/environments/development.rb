@@ -53,5 +53,18 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # device mailer setting
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {
+      host: ENV['HOSTNAME'],
+      port: ENV['PORT']
+  }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      user_name: ENV['GOOGLE_USERNAME'],
+      password: ENV['GOOGLE_PASSWORD'],
+      authentication: :login,
+      enable_starttls_auto: true
+  }
 end
