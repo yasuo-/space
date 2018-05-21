@@ -17,10 +17,10 @@ class StripeOauth < Struct.new(:user)
     # 例外処理
     # RestClientについて https://github.com/rest-client/rest-client
     begin
-      response = RestClient.get url
+      # response = RestClient.get url
       # If the request was successful, then we're all good to return
       # this URL.
-    rescue => e
+    rescue StandardError => e
       # On the other hand, if the request failed, then
       # we can't send them to connect.
       json = JSON.parse(e.response.body) rescue nil
@@ -57,7 +57,7 @@ class StripeOauth < Struct.new(:user)
   # https://stripe.com/docs/connect/standalone-accounts
   def verify!(code)
     data = client.get_token(code, { headers: {
-      'Authorization' => "Bearer #{Stripe.api_key}"
+      Authorization: "Bearer #{Stripe.api_key}"
     }})
 
     # save to user model
@@ -78,7 +78,7 @@ class StripeOauth < Struct.new(:user)
       'https://connect.stripe.com/oauth/deauthorize',
       { client_id: Rails.application.secrets.stripe_connect_client_id,
         stripe_user_id: user.stripe_user_id },
-      { 'Authorization' => "Bearer #{Stripe.api_key}" }
+      { Authorization: "Bearer #{Stripe.api_key}" }
     )
     user_id = JSON.parser(response.body)['stripe_user_id']
 
