@@ -21,9 +21,9 @@
 }
 
 .bd-main {
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
-  margin-top: 75px;
+  margin-top: 60px;
 }
 
 .card-media {

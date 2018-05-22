@@ -1,25 +1,36 @@
-<header class="navbar has-shadow is-fixed-top is-transparent">
-  <div>
-    <%= link_to root_path, class: "navbar-item" do %>
+<!--  header -->
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <%= link_to root_path, class: "logo" do %>
       <%= image_tag("logo.png") %>
     <% end %>
-  </div>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-end">
-      <%= render partial: 'shared/header_nav' %>
-      <%= render partial: 'shared/header_user_menu' %>
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <%= link_to new_listing_path, class: 'button is-primary' do %>
-              <span class="icon">
-                <i class="fas fa-plus"></i>
-              </span><span>Add Listing</span>
-            <% end %>
-          </p>
-        </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
       </div>
     </div>
+
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        <li class="nav-link">
+          <a href="javascript:void(0)">Products</a>
+        </li>
+        <li class="nav-link">
+          <%= link_to listings_path do %>
+            Listing
+          <% end %>
+        </li>
+        <%= render partial: 'shared/header_user_menu' %>
+        <%= render partial: 'shared/header_nav' %>
+      </ul>
+    </nav>
   </div>
 </header>
+<!-- /header -->
