@@ -8,7 +8,7 @@ class CreateReservations < ActiveRecord::Migration[5.1]
       t.time :start_time,     null: false
       t.time :end_time,       null: false
       t.integer :price,       default: 0
-      t.integer :total,       default: 0
+      t.integer :total_price, default: 0
       t.string :menu
 
       t.timestamps
