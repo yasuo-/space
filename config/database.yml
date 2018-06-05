@@ -15,12 +15,14 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  timeout: 5000
+  # adapter: postgresql
+  # encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: db
+  # host: db
   username: postgres
   password:
   pool: 5
@@ -84,6 +86,7 @@ test:
 #
 production:
   <<: *default
-  database: space_production
-  username: space
-  password: <%= ENV['SPACE_DATABASE_PASSWORD'] %>
+  database: ENV['LOLIPOP_DATABASE'] #space_production
+  username: ENV['LOLIPOP_USERNAME'] #space
+  password: ENV['LOLIPOP_PASSWORD'] #<%= ENV['SPACE_DATABASE_PASSWORD'] %>
+  host: ENV['LOLIPOP_HOST']
