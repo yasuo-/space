@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  space_production
-  space
-  <%= ENV['SPACE_DATABASE_PASSWORD'] %>
+  database: space_production
+  username: space
+  password: <%= ENV['SPACE_DATABASE_PASSWORD'] %>

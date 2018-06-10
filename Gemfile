@@ -51,7 +51,7 @@ gem 'toastr-rails'
 gem 'rack-cors'
 # S3などに画像up
 gem "paperclip"
-gem 'fog'
+gem 'fog-aws'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 # user-agent判定
 gem 'woothee'
