@@ -1,36 +1,9 @@
 <!--  header -->
-<header class="navigation" role="banner">
-  <div class="navigation-wrapper">
-    <%= link_to root_path, class: "logo" do %>
-      <%= image_tag("logo.png") %>
-    <% end %>
+<header class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white u-box-shadow u-pad_8_8" role="banner">
+  <%= link_to root_path, class: "navbar-brand mr-0 mr-md-2 mr-md-auto" do %>
+    <%= image_tag("logo.png", alt: "Logo", size: 36 ) %>
+  <% end %>
 
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <form role="search">
-          <input type="search" placeholder="Enter Search" />
-          <button type="submit">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
-    <nav role="navigation">
-      <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link">
-          <a href="javascript:void(0)">Products</a>
-        </li>
-        <li class="nav-link">
-          <%= link_to listings_path do %>
-            Listing
-          <% end %>
-        </li>
-        <%= render partial: 'shared/header_user_menu' %>
-        <%= render partial: 'shared/header_nav' %>
-      </ul>
-    </nav>
-  </div>
+  <%= render partial: 'shared/header_user_menu' %>
 </header>
 <!-- /header -->

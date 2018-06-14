@@ -1,6 +1,15 @@
 class ReservationsController < ApplicationController
   # before_action :set_reservation, only: [:update, :destroy]
 
+  def new
+    @listing = Listing.find(params[:listing_id])
+    @user = current_user
+    @start_date = params[:reservation][:start_date]
+    @end_date = params[:reservation][:end_date]
+    @price = params[:reservation][:price]
+    @total_price = params[:reservation][:total_price]
+  end
+
   # POST /reservations or POST /reservations.json
   def create
     @reservation = current_user.reservation.create(reservation_params)

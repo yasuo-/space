@@ -1,302 +1,360 @@
-<%= render partial: 'shared/main_banner' %>
 
-<div class="bd-main-container">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">カテゴリーで探す</h1>
-        <div class="columns">
-          <div class="column">
-
-            <div class="card">
-              <div class="card-media">
-                <div class="media-left">
-                  <%= image_tag 'https://picsum.photos/196/176/?random', class: 'card-media-img'%>
-                </div>
-                <div class="media-content card-media-content">
-                  <p class="title is-4">カテゴリー1</p>
-                </div>
-              </div>
+<section class="hero bg-zoom">
+  <div class="wrapper">
+    <div class="container">
+      <h3>Book unique experiences</h3>
+      <p>Expolore top rated tours, hotels and restaurants around the world</p>
+      <%= form_tag  method: :get, class: "f-custom f-custom--top" do %>
+        <%= hidden_field_tag :lat %>
+        <%= hidden_field_tag :lng %>
+        <div class="row no-gutters f-custom__search f-custom__search--top">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], placeholder: "希望の場所...", class: "form-control", id:"top-search-form" %>
+              <i class="icon_pin_alt"></i>
             </div>
-
           </div>
-          <div class="column">
-
-            <div class="card">
-              <div class="card-media">
-                <div class="media-left">
-                  <%= image_tag 'https://picsum.photos/196/176/?random', class: 'card-media-img'%>
-                </div>
-                <div class="media-content card-media-content">
-                  <p class="title is-4">カテゴリー2</p>
-                </div>
-              </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= text_field_tag :start_date, params[:start_date], placeholder: "Check in", class: "form-control" %>
+              <i class="icon_calendar"></i>
             </div>
-
           </div>
-          <div class="column">
-
-            <div class="card">
-              <div class="card-media">
-                <div class="media-left">
-                  <%= image_tag 'https://picsum.photos/196/176/?random', class: 'card-media-img'%>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <%= text_field_tag :end_date, params[:end_date], placeholder: "Check out", class: "form-control" %>
+              <i class="icon_calendar"></i>
+            </div>
+          </div>
+          <div class="col-lg-3 is-hidden">
+            <div class="dropdown-panel">
+              <a href="#">Guests <span class="qtyTotal">1</span></a>
+              <div class="dropdown-panel__content">
+                <!-- Quantity Buttons -->
+                <div class="qtyButtons">
+                  <label>Adults</label>
+                  <div class="qtyDec"></div><input type="text" name="qtyInput" value="1"><div class="qtyInc"></div>
                 </div>
-                <div class="media-content card-media-content">
-                  <p class="title is-4">カテゴリー3</p>
+                <div class="qtyButtons">
+                  <label>Childrens</label>
+                  <div class="qtyDec"></div><input type="text" name="qtyInput" value="0"><div class="qtyInc"></div>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="col-lg-2">
+            <%= submit_tag "Search", class: "button button--search" %>
+          </div>
+        </div>
+        <!-- /row -->
+      <% end %>
+    </div>
+  </div>
+</section>
 
+<section class="container-fluid u-mar_80_0 p-main">
+  <div class="p-main__block">
+    <span><em></em></span>
+    <h2 class="p-main__block__title">Our Popular Tours</h2>
+    <p class="p-main__block__text">Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+  </div>
+  <!-- carousel -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f725%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f725%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72a%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72a%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+          <div class="card-body">
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              </div>
+              <small class="text-muted">9 mins</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+  <!-- /carousel -->
+  <div class="container">
+    <p class="p-button--right">
+      <a href="tours-grid-isotope.html" class="button button--more u-border-rounded">View all Tours</a>
+    </p>
+  </div>
+  <!-- /container -->
+  <hr class="large" />
+</section>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">おすすめ</h1>
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
+<section class="container-fluid u-pad_30_90 pl-lg-5 pr-lg-5 p-main">
+  <!-- Popular Hotels -->
+  <article class="u-mar_bottom_48">
+    <div class="p-main__box">
+      <span><em></em></span>
+      <h2 class="p-main__box__title">Popular Hotels and Accommodations</h2>
+      <p class="p-main__box__text">Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>8.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Mariott Hotel</h3>
             </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>7.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Concorde Hotel </h3>
             </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>7.0</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Louvre Hotel</h3>
             </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>8.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Park Yatt Hotel</h3>
             </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+    </div>
+    <!-- /row -->
+    <p class="p-button--right">
+      <a href="" class="text-more">
+        <strong>View more (157) <i class="arrow_carrot-right"></i></strong>
+      </a>
+    </p>
+  </article>
+  <!-- /Popular Hotels -->
 
-          </div>
+  <!-- Popular Salon -->
+  <article>
+    <div class="p-main__box">
+      <span><em></em></span>
+      <h2 class="p-main__box__title">Popular Salon</h2>
+      <p class="p-main__box__text">Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+    </div>
+    <!-- row -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>8.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Mariott Hotel</h3>
+            </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>7.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Concorde Hotel </h3>
+            </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>7.0</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Louvre Hotel</h3>
+            </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+      <div class="col-xl-3 col-lg-6 col-md-6">
+        <a href="hotel-detail.html" class="grid_item">
+          <figure>
+            <div class="score"><strong>8.9</strong></div>
+            <img data-src="holder.js/1455px308?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" class="img-fluid" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_163f833f72e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_163f833f72e%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.8359375%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+            
+            <div class="info">
+              <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
+              <h3>Park Yatt Hotel</h3>
+            </div>
+          </figure>
+        </a>
+      </div>
+      <!-- /grid_item -->
+    </div>
+    <!-- /row -->
+    <p class="p-button--right">
+      <a href="" class="text-more">
+        <strong>View more (157) <i class="arrow_carrot-right"></i></strong>
+      </a>
+    </p>
+  </article>
+  <!-- /Popular salon -->
+</section>
 
-        </div>
+
+<section class="u-bg-white">
+  <div class="container u-pad_80_90 p-main">
+    <div class="p-main__block">
+      <span><em></em></span>
+      <h2 class="p-main__block__title">Usage Flow</h2>
+      <p class="p-main__block__text">Introducing the flow of how to use the service.</p>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <%= image_tag("icon-search", alt: "Explore", size: 150 ) %>
+        <h4 class="service-heading">Explore</h4>
+        <p class="text-muted hidden-xs">Searchtext Searchtext Searchtext</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag('icon-calendar', alt: "Reservation", size: 150) %>
+        <h4 class="service-heading">Reservation</h4>
+        <p class="text-muted hidden-xs">Reservation　text Reservation　text Reservation　text</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag('icon-home', alt: "Experience", size: 150) %>
+        <h4 class="service-heading">Experience</h4>
+        <p class="text-muted hidden-xs">Experience　text Experience　text Experience　text</p>
       </div>
     </div>
-  </section>
 
-  <%= render partial: 'shared/banner' %>
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">体験</h1>
-        <p class="subtitle">仲間と何か新しいことにチャレンジ</p>
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+    <div class="container">
+      <p class="p-button--right">
+        <a href="tours-grid-isotope.html" class="button button--more u-border-rounded">Read more</a>
+      </p>
     </div>
-  </section>
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">会議</h1>
-        <div class="columns">
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="https://picsum.photos/1280/960/?random" alt="Placeholder image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="subtitle is-4">山田  山田</p>
-                    <p class="subtitle is-6">@yamadada</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <%= render partial: 'shared/banner' %>
+  </div>
+</section>
 
 
-</div>
+<!-- datepickerのスクリプト -->
+<script>
+  $(function() {
+    $("#start_date").datepicker({
+      dateFormat: 'dd-mm-yy',
+      minDate: 0,
+      maxDate: '3m',
+      onSelect: function(selected) {
+        $('#end_date').datepicker("option", "minDate", selected);
+        $('#end_date').attr('disabled', false);
+      }
+    });
+
+    $("#end_date").datepicker({
+      dateFormat: 'dd-mm-yy',
+      minDate: 0,
+      maxDate: '3m',
+      onSelect: function(selected) {
+        $('#start_date').datepicker("option", "maxDate", selected);
+      }
+    });
+  })
+</script>
+
+<script>
+  $(function(){
+    $(".navbar").removeClass("navbar-devise");
+    $(".navbar").addClass("navbar-default");
+  });
+
+  function init() {
+
+    var input = /** @type {!HTMLInputElement} */(
+        document.getElementById('top-search-form'));
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.addListener('place_changed', function() {
+
+      var place = autocomplete.getPlace();
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
+
+      document.getElementById('lat').value = lat ;
+      document.getElementById('lng').value = lng ;
+
+      if (!place.geometry) {
+        window.alert("Autocomplete's returned place contains no geometry");
+        return;
+      }
+
+    });
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1BoiSo2jL950_AuFzV-f9ETgKn0uQl2I&signed_in=true&libraries=places&callback=init" async defer></script>
+
