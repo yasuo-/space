@@ -4,7 +4,10 @@ services: postgresql
 bundler_args: "--without development --deployment -j4"
 cache: bundler
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+- cp config/database.travis.yml config/database.yml
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 script: bundle exec rake test
+notifications:
+  slack:
+    secure: rcoeQmo9S5TYfDlfrcRAehPssZwvBJcdyLDQzNBQ0mTyPTb7i+sdbZ7kEIZ/6A2AJU0B3FL6DLDnXXy7YW7Kn+pQC+Rtp6FVDMzV7ai0PO1NGLXUfpNihVYPJ5fbPf7Z2yTrjgyx5dgkFeECLyZGmpv3j9NRCTSjBc+gz6LeBnLILVIW1EbO1u5CIFvKnEw80Ehc/PCLNtuIobE+zfT2PH5r7sLyIK1Zd7YdvYAH92ej4V0GwY58aDsIv7I3YARrZ4ktdB3fb1Vh2rlw6f0cmEeXm12mCljNvwWfBodOtgKqiJQ43P8QR3wQR1vVztYM0sgk5w0kESRUlsKWhSxkQucHJu1TJR3H/96xvXizoj2lS4LcmwrJJ62JdSpFw5ek/pvAk9N/zDD3yCAwQWTVmgtE3LfS1YAIEeZL6o9ft1ZTFWcGA0etXmhjJHYwreXtRoMs9t30DWTrnRTGhAVgs60NxtV2A0CejIo30VxiN6sXGJ2ofGUHw8dNGCW3ffhbBI6NBT67INdxRRXa1za8QKnQ228RJqgK/PT2UmNbtUm26uemxfiavaem8FtQZAABNpscmXseAIrzcYKkzJwqU8EH4pI6ymURsyrvFq7bcnTSrHNyN4kcVgViDdrze8XaYPo0YNSf5r7kq419DoSMt7PirPEXwqa2McH4tM4q4oY=
