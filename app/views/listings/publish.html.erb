@@ -1,41 +1,34 @@
-<div class="container">
-  <div class="col-md-3">
-    <%= render 'shared/verticalnavbar'%>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="text-center">
-          <span style="font-size:24px;">公開設定</span>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">listing-Publish</li>
+</ol>
+<!-- /Breadcrumbs-->
+
+<%= form_for @listing do |f| %>
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Publish</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Publish Setting</label>
+          <div class="styled-select">
+            <%= f.select :active, [["公開する","true"], ["非公開にする","false"]], 
+            { prompt: "選択してください" }, { required: 'true', autofocus: 'true' } %>
+          </div> 
         </div>
       </div>
-
-      <div class="panel-body">
-
-        <%= form_for @listing do |f| %>
-
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <%= f.select :active, [["公開する","true"], ["非公開にする","false"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "更新", class: "btn btn-danger" %>
-            </div>
-        <% end %>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
 
+  <%= render 'shared/verticalnavbar'%>
 
-<script type="text/javascript">
-  <% if @listing.not_checked > 0 %>
-  $(function(){
-    $('select#listing_active').attr('disabled', 'disabled');
-  });
-  <% end %>
-</script>
+  <p>
+    <%= f.submit "Update", class: "button button--save u-border-rounded" %>
+  </p>
+<% end %>

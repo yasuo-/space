@@ -1,32 +1,31 @@
-<div class="container">
-  <div class="col-md-3">
-    <%= render 'shared/verticalnavbar'%>
-  </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="text-center">
-          <span style="font-size:24px;">リスティング内容の編集</span>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">edit listing-Description</li>
+</ol>
+<!-- /Breadcrumbs-->
+
+<%= form_for @listing do |f| %>
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Basic info Description</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Description</label>
+          <%= f.text_area :summary, rows: 8, placeholder: "Listing Description", class: "form-control", required: "true" %>
         </div>
       </div>
-
-      <div class="panel-body">
-
-        <%= form_for @listing do |f| %>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label>内容</label>
-                  <%= f.text_area :summary, rows: 8, placeholder: "リスティングの内容について記述してください", class: "form-control", required: "true" %>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions">
-              <%= f.submit "更新", class: "btn btn-danger" %>
-            </div>
-        <% end %>
-      </div>
     </div>
-  </div>
-</div>
+  </section>
+
+  <%= render 'shared/verticalnavbar'%>
+
+  <p>
+    <%= f.submit "Update", class: "button button--save u-border-rounded" %>
+  </p>
+<% end %>

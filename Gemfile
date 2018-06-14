@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'bootstrap-sass'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -59,6 +60,11 @@ gem 'woothee'
 # 決済
 gem 'stripe'
 
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'dropzonejs-rails'
+gem 'ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -73,6 +79,7 @@ group :development, :test do
   gem 'meowcop'
   gem 'rails-erd'
   gem 'rails-controller-testing'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do

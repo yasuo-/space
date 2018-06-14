@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
+  layout 'host_application'
   before_action :authenticate_user!
-  before_action :set_listing, only: [:show, :edit, :update, :destroy, :basics, :summary, :address, :price, :photos, :calendar, :facility, :publish, :map]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy, :basics, :summary, :address, :price, :photos, :calendar, :facility, :bankaccount, :publish, :map]
   before_action :access_deny, only: [:basics, :summary, :address, :price, :photos, :calendar, :facility, :publish, :map]
 
   # GET /listings or /listings.json
@@ -129,6 +130,7 @@ class ListingsController < ApplicationController
                                     :user_id,
                                     :listing_name,
                                     :latitude,
-                                    :longitude)
+                                    :longitude,
+                                    :active)
   end
 end

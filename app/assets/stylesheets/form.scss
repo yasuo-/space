@@ -1,0 +1,102 @@
+.form__custom {
+ 
+}
+
+.f-custom {
+  &__top {
+  }
+  &__search {
+    background-color: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    -webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
+    
+    &--top {
+      input {
+        border: 0;
+        height: 50px;
+        padding-left: 15px;
+        border-right: 1px solid #d2d8dd;
+        font-weight: 500;
+      }
+
+      
+      i {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 18px;
+        font-size: 1.125rem;
+        position: absolute;
+        background-color: #fff;
+        line-height: 50px;
+        top: 0;
+        right: 1px;
+        padding-right: 15px;
+        display: block;
+        width: 20px;
+        box-sizing: content-box;
+        height: 50px;
+        z-index: 9;
+        color: #999;
+      }
+    }
+    
+    .form-group {
+      margin: 0;
+    }
+  }
+}
+
+#newsletter .form-group {
+  position: relative;
+}
+
+#newsletter {
+  input[type=email] {
+    border: 0;
+    height: 40px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    padding-left: 15px;
+    font-size: 14px;
+    background-color: #f3f3f3;
+    background-color: rgba(255,255,255,.06);
+    color: #fff;
+  }
+
+  input[type=submit] {
+    position: absolute;
+    width: 68px;
+    right: 0;
+    color: #fff;
+    font-size: 13px;
+    font-size: .8125rem;
+    font-weight: 600;
+    top: 0;
+    border: 0;
+    padding: 0 12px;
+    height: 40px;
+    cursor: pointer;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -ms-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+    background-color: #f7941c;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    outline: 0;
+  }
+  input[type=submit]:hover {
+    background-color: #FFC107;
+    color: #222;
+  }
+}

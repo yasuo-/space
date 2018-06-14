@@ -1,31 +1,34 @@
-<div class="container">
-  <div class="col-md-3">
-    <%= render 'shared/verticalnavbar'%>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">edit listing-Photos</li>
+</ol>
+<!-- /Breadcrumbs-->
+
+<section class="box_general u-pad_bottom_30">
+  <div class="header_box version_2">
+    <h2>Photos</h2>
   </div>
-  <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="text-center">
-          <span style="font-size:24px;">リスティング写真の編集</span>
-        </div>
-      </div>
 
-      <div class="panel-body">
-        <%= form_for @photo, html:{multipart: true,class:"dropzone", id:"my-dropzone", required: "true" } do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label>Photos</label>
+        <%= form_for @photo, html:{ multipart: true, class:"dropzone dz-clickable", required: "true" } do |f| %>
 
-            <%= f.hidden_field :listing_id, value: @listing.id %>
-            <div class="dz-message needsclick">
-              <h3>ファイルをここにドロップしてください。</h3>
-              <strong>アップロードするにはここをクリックしてください</strong>
-            </div>
-
-            <div class="fallback">
-              <%= f.file_field :image %>
-              <%= f.submit "Upload image" %>
-            </div>
-
+          <%= f.hidden_field :listing_id, value: @listing.id %>
+          <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+          
+          <div class="fallback">
+            <%= f.file_field :image %>
+            <%= f.submit "Upload image" %>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<%= render 'shared/verticalnavbar'%>

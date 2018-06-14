@@ -4,6 +4,9 @@ class CreateListings < ActiveRecord::Migration[5.1]
       t.string :home_type,     limit: 50
       t.string :listing_type,  limit: 50
       t.text :summary,         limit: 250
+      t.integer :zip_code,     default: 0
+      t.string :state,         limit: 50
+      t.string :city,          limit: 50
       t.string :address,       limit: 50
       t.boolean :is_tv,        default: false, null: false
       t.boolean :is_kitchen,   default: false, null: false

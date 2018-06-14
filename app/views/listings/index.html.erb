@@ -1,48 +1,112 @@
-
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="col-md-10 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="text-center">
-          <span style="font-size:18px;">リスティング一覧</span>
-        </div>
-      </div>
-      <ul class="ul-unstyled">
-        <% @listings.each do |listing| %>
-          <li class="panel-body">
-            <div class="row-table">
-              <div class="col-md-3 col-sm-3 col-middle row-space-2">
-                <div class="panel-list-img text-center">
-                  <% if listing.photos.length > 0 %>
-                    <%= image_tag listing.photos[0].image.url(:medium)  %>
-                  <% else %>
-                    <img src="http://placehold.jp/150x50.png">
-                  <% end %>
-                </div>
-              </div>
 
-              <div class="col-sm-7 col-lg-7 col-middle row-space-2">
-                <span class="listing-title"><%= listing.listing_name%></span>
-              </div>
-
-              <div class="col-md-3 col-sm-3 col-middle row-space-1">
-                <%= link_to "編集する", manage_listing_basics_path(listing), class: "btn btn-success pull-right" %>
-                <% if false %>
-                <%= link_to '削除する', listing, method: :delete, data: { confirm: '削除してもよろしいですか?' }, class: "btn btn-error pull-right" %>
-                <% end %>
-              </div>
-
-            </div>
-          </li>
-        <% end %>
-      </ul>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Bookings list</li>
+</ol>
+<!-- /Breadcrumbs-->
+<section class="box_general">
+  <div class="header_box">
+    <h2 class="d-inline-block">Bookings list</h2>
+    <div class="filter">
+      <select name="orderby" class="selectbox" sb="24272890" style="display: none;">
+        <option value="Any status">Any status</option>
+        <option value="Approved">Approved</option>
+        <option value="Pending">Pending</option>
+        <option value="Cancelled">Cancelled</option>
+      </select><div id="sbHolder_24272890" class="sbHolder"><a id="sbToggle_24272890" href="#" class="sbToggle"></a><a id="sbSelector_24272890" href="#" class="sbSelector">Any status</a><ul id="sbOptions_24272890" class="sbOptions" style="display: none;"><li><a href="#Any status" rel="Any status" class="sbFocus">Any status</a></li><li><a href="#Approved" rel="Approved">Approved</a></li><li><a href="#Pending" rel="Pending">Pending</a></li><li><a href="#Cancelled" rel="Cancelled">Cancelled</a></li></ul></div>
     </div>
-
   </div>
-</div>
 
+  <div class="list_general">
+    <ul>
+      <% @listings.each do |listing| %>
+        <li>
+          <article>
+            <figure>
+              <% if listing.photos.length > 0 %>
+                <%= image_tag listing.photos[0].image.url(:medium)  %>
+              <% else %>
+                <img src="http://placehold.jp/150x50.png" />
+              <% end %>
+            </figure>
+            <h4 class="listing-title"><%= listing.listing_name%><i class="pending">Pending</i></h4>
+            <ul class="booking_list">
+              <li><strong>Start date</strong> 11 November 2017</li>
+              <li><strong>End date</strong> 11 April 2018</li>
+              <li><strong>Booking details</strong> 2 People</li>
+              <li><strong>Client</strong> Mark Twain</li>
+            </ul>
+            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+            <ul class="buttons">
+              <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+              <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+            </ul>
+            <ul class="buttons u-top_80">
+              <li>
+                <%= link_to "編集する", manage_listing_basics_path(listing), class: "btn_1 gray approve" %>
+              </li>
+              <% if false %>
+              <li>
+                <%= link_to '削除する', listing, method: :delete, data: { confirm: '削除してもよろしいですか?' }, class: "btn_1 gray delete" %>
+              </li>
+              <% end %>
+            </ul>
+          </article>
+        </li>
+      <% end %>
 
+      <li>
+        <figure><img src="img/item_2.jpg" alt=""></figure>
+        <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
+        <ul class="booking_list">
+          <li><strong>Booking date</strong> 11 November 2017</li>
+          <li><strong>Booking details</strong> 2 People</li>
+          <li><strong>Client</strong> Mark Twain</li>
+        </ul>
+        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <ul class="buttons">
+          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+        </ul>
+      </li>
+      <li>
+        <figure><img src="img/item_3.jpg" alt=""></figure>
+        <h4>Pompidue Museum <i class="approved">Approved</i></h4>
+        <ul class="booking_list">
+          <li><strong>Booking date</strong> 11 November 2017</li>
+          <li><strong>Booking details</strong> 2 People</li>
+          <li><strong>Client</strong> Mark Twain</li>
+        </ul>
+        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <ul class="buttons">
+          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>  
+</section>
+<!-- /box_general-->
+	  
+<nav aria-label="...">
+  <ul class="pagination pagination-sm add_bottom_30">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+<!-- /pagination-->
+     
 <% if false %>
 
 <h1>Rooms</h1>
