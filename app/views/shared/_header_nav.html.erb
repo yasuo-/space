@@ -1,34 +1,35 @@
-
-  <a class="navbar-item" href="https://bulma.io/">
-    Home
-  </a>
-  <div class="navbar-item has-dropdown is-hoverable">
-    <a class="navbar-link" href="/documentation/overview/start/">
-      Docs
-    </a>
-    <div class="navbar-dropdown is-boxed">
-      <a class="navbar-item" href="/documentation/overview/start/">
-        Overview
-      </a>
-      <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-        Modifiers
-      </a>
-      <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-        Columns
-      </a>
-      <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-        Layout
-      </a>
-      <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-        Form
-      </a>
-      <hr class="navbar-divider">
-      <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-        Elements
-      </a>
-      <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-        Components
-      </a>
-    </div>
-  </div>
-</div>
+<li id="js-navigation-more" class="nav-link more">
+  <a href="javascript:void(0)">More</a>
+  <ul class="submenu">
+    <li>
+      <%= link_to new_listing_path do %>
+        Add Listing
+      <% end %>
+    </li>
+    <li>
+      <a href="javascript:void(0)">Another Item</a>
+    </li>
+    <li class="more">
+      <a href="javascript:void(0)">Item with submenu</a>
+      <ul class="submenu">
+        <li>
+          <a href="javascript:void(0)">Sub-submenu Item</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">Another Item</a>
+        </li>
+      </ul>
+    </li>
+    <li class="more">
+      <a href="javascript:void(0)">Another submenu</a>
+      <ul class="submenu">
+        <li>
+          <a href="javascript:void(0)">Sub-submenu</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">An Item</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</li>

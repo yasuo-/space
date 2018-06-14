@@ -1,25 +1,9 @@
-<header class="navbar has-shadow is-fixed-top is-transparent">
-  <div>
-    <%= link_to root_path, class: "navbar-item" do %>
-      <%= image_tag("logo.png") %>
-    <% end %>
-  </div>
+<!--  header -->
+<header class="d-flex flex-column flex-md-row align-items-center px-md-4 bg-white u-box-shadow u-pad_8_8" role="banner">
+  <%= link_to root_path, class: "navbar-brand mr-0 mr-md-2 mr-md-auto" do %>
+    <%= image_tag("logo.png", alt: "Logo", size: 36 ) %>
+  <% end %>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-end">
-      <%= render partial: 'shared/header_nav' %>
-      <%= render partial: 'shared/header_user_menu' %>
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <%= link_to new_listing_path, class: 'button is-primary' do %>
-              <span class="icon">
-                <i class="fas fa-plus"></i>
-              </span><span>Add Listing</span>
-            <% end %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'shared/header_user_menu' %>
 </header>
+<!-- /header -->

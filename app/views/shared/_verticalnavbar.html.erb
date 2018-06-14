@@ -33,10 +33,10 @@
         <li class="<%= 'active' if controller?("listings") && action?("calendar") %>">
           <%= link_to "カレンダー", manage_listing_calendar_path(@listing) %>
         </li>
+        <% end %>
         <li class="<%= 'active' if controller?("listings") && action?("bankaccount") %>" id = "nav-bankaccount">
           <%= link_to "受取口座情報", manage_listing_bankaccount_path(@listing) %>
         </li>
-        <% end %>
         <li class="<%= 'active' if controller?("listings") && action?("publish") %>" id = "nav-publish">
           <%= link_to "公開する", manage_listing_publish_path(@listing) %>
         </li>

@@ -1,41 +1,42 @@
-.btn-facebook {
-  background: #3B5998;
-  color: #fff;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #263961;
-}
-.btn-facebook:link, .btn-facebook:visited {
-  color: #fff;
-}
-.btn-facebook:active, .btn-facebook:hover {
-  background: #263961;
-  color: #fff;
-}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ */
 
+@import "base";
+@import "text";
+@import "button";
+@import "toastr";
+@import "dropdown";
+@import "form";
+@import "footer";
+@import "pages";
+@import "admin";
+@import "util";
 
-
-/**
- icon
- **/
-
-.navbar-link::after, .select:not(.is-multiple):not(.is-loading)::after {
-  margin-top: 8px;
-  margin-right: 10px;
-  top: 100%;
-}
-
-
-
-
+/*
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "dropzone/dropzone";
+@import "jquery-ui/datepicker";
+@import "jquery-bootstrap-datepicker";
+*/
 .jumbotron {
   padding-top: 0px;
   // 背景画像を暗くする
-  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05) ), url(person-845325_1920.jpg);
+  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05) ), url(banner/banner-top.jpg);
   background-size: cover;
   // 背景画像の位置を決める
   background-position: 50% 50%;
-  height: 420px;
+  height: 620px;
   position: relative;
 }
 
@@ -443,64 +444,6 @@ li#nav-publish a{
   margin: 0 auto;
   background-color: white;
   padding: 15px
-}
-
-// フッターのCSS
-footer {
-  padding: 120px 0;
-  text-align: center;
-  background: #2b2d2e;
-  height:250px;
-}
-footer {
-  display: block;
-}
-
-footer span.copyright {
-  line-height: 40px;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  text-transform: none;
-  color: #fff
-}
-
-ul.social-buttons {
-  margin-bottom: 0;
-}
-
-ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
-  background-color: #d9534f;
-}
-
-.list-inline {
-  padding-left: 0;
-  margin-left: -5px;
-  list-style: none;
-}
-
-.list-inline>li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
-}
-
-li.text-white a{
-  color: #fff
-}
-
-ul.social-buttons li a {
-  display: block;
-  background-color: #222222;
-  height: 40px;
-  width: 40px;
-  border-radius: 100%;
-  font-size: 20px;
-  line-height: 40px;
-  color: white;
-  outline: none;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
 }
 
 footer ul.quicklinks {

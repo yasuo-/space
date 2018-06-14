@@ -14,7 +14,11 @@
       </script>
   <% end %>
     <%= render 'host/header' %>
-      <%= yield %>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
     <%= render 'host/footer' %>
   </body>
 </html>

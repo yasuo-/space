@@ -1,3 +1,177 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.hero {
+  width: 100%;
+  height: 620px;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05)), url(banner/banner-top.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+
+  .bg-zoom {
+    animation: pop-in 6s .3s cubic-bezier(0,.5, 0, 1) forwards;
+    content: "";
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .wrapper {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    h3 {
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 4px 4px 12px rgba(0,0,0,.3);
+      font-size: 42px;
+      color: #fff;
+    }
+
+    p {
+      font-weight: 400;
+      margin: 10px 0 0;
+      line-height: 1.4;
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+}
+
+.p-main {
+  &__block {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+
+    span {
+      width: 120px;
+      height: 2px;
+      background-color: #e1e1e1;
+      display: block;
+      margin: auto;
+
+      em {
+        width: 60px;
+        height: 2px;
+        background-color: #f7941d;
+        display: block;
+        margin: auto;
+      }
+    }
+
+    &__title {
+      margin: 25px 0 0;
+    }
+
+    &__text {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+  }
+}
+
+.p-main {
+  &__box {
+    margin-bottom: 25px;
+    position: relative;
+    span {
+      width: 120px;
+      height: 2px;
+      background-color: #e1e1e1;
+      display: block;
+
+      em {
+        width: 60px;
+        height: 2px;
+        background-color: #f7941d;
+        display: block;
+      }
+    }
+
+    &__title {
+      font-size: 24px;
+      margin: 25px 0 0;
+    }
+
+    &__text {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+  }
+}
+
+.p-button--right {
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+hr.large {
+  border-top-width: 4px;
+  margin-top: 60px;
+}
+
+.grid_item {
+  display: block;
+  margin-bottom: 25px;
+  figure {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    .score {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 9;
+      strong {
+        background-color: #fc5b62;
+        color: #fff;
+        line-height: 1;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        border-radius: 5px;
+        padding: 10px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .info {
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    display: block;
+    padding: 25px 20px 5px;
+    color: #fff;
+    left: 0;
+    bottom: 0;
+    background: 0 0;
+    background: -webkit-linear-gradient(top,transparent,#000);
+    background: linear-gradient(to bottom,transparent,#000);
+  
+    .cat_star {
+      font-size: 9px;
+      font-size: .5625rem;
+    }
+  
+    h3 {
+      color: #fff;
+      font-size: 21px;
+      font-size: 1.3125rem;
+    }
+  }
+}
+

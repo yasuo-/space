@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20180521090926) do
     t.string "home_type", limit: 50
     t.string "listing_type", limit: 50
     t.text "summary"
+    t.integer "zip_code", default: 0
+    t.string "state", limit: 50
+    t.string "city", limit: 50
     t.string "address", limit: 50
     t.boolean "is_tv", default: false, null: false
     t.boolean "is_kitchen", default: false, null: false
@@ -56,10 +59,8 @@ ActiveRecord::Schema.define(version: 20180521090926) do
     t.bigint "listing_id"
     t.datetime "start_date", null: false
     t.datetime "end_date", null: false
-    t.time "start_time", null: false
-    t.time "end_time", null: false
     t.integer "price", default: 0
-    t.integer "total", default: 0
+    t.integer "total_price", default: 0
     t.string "menu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
