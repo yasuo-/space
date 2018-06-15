@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :reservations, only: [:new, :create]
   end
 
+  resources :photos, only: [:create, :destroy] do
+    collection do
+      get :list
+    end
+  end
+
   get 'manegelisting/:id/basics',      to: 'listings#basics',      as: 'manage_listing_basics'
   get 'manegelisting/:id/summary',     to: 'listings#summary',     as: 'manage_listing_summary'
   get 'manegelisting/:id/address',     to: 'listings#address',     as: 'manage_listing_address'
