@@ -1,14 +1,16 @@
 class Photo < ApplicationRecord
   belongs_to :listing
+  has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
   # s3
-  has_attached_file :photo,
-                    stora: :s3,
-                    s3_permissions: :public,
-                    s3_credentials: "#{Rails.root}/config/s3.yml",
-                    path: ":attachment/:id/:style.:extension"
+  # has_attached_file :photo,
+  #                  stora: :s3,
+  #                  s3_permissions: :public,
+  #                  s3_credentials: "#{Rails.root}/config/s3.yml",
+  #                  path: ":attachment/:id/:style.:extension"
 
-  do_not_validate_attachment_file_type :photo
+  # do_not_validate_attachment_file_type :photo
   # local
   # has_attached_file :photo,
   #	styles: { medium: "300x300>", thumb: "100x100>" }, # 画像サイズを指定

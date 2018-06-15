@@ -16,10 +16,12 @@
     <div class="col-md-12">
       <div class="form-group">
         <label>Photos</label>
-        <%= form_for @photo, html:{ multipart: true, class:"dropzone dz-clickable", required: "true" } do |f| %>
+        <%= form_for @photo, html:{ multipart: true, class:"dropzone dz-clickable", id:"my-dropzone", required: "true" } do |f| %>
 
           <%= f.hidden_field :listing_id, value: @listing.id %>
-          <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+          <div class="dz-default dz-message needsclick">
+            <span>Drop files here to upload</span>
+          </div>
           
           <div class="fallback">
             <%= f.file_field :image %>
@@ -32,3 +34,59 @@
 </section>
 
 <%= render 'shared/verticalnavbar'%>
+
+<!-- dropzone.js -->
+<script type="text/javascript">
+  $(function () {
+  Dropzone.autoDiscover = false;
+  
+  $("#my-dropzone").dropzone({
+    maxFilesize: 200,
+    addRemoveLinks: true,
+    paramName: 'photo[photo]',
+    success: function(file, response) {
+      //add .dz-success class to file.previewElement 
+      $(file.previewElement).addClass('dz-success');
+      //add response.uploadId to .dz-remove class
+      $(file.previewElement).find('.dz-remove').attr('id', response.photoId);
+    },
+    removedfile: function(file) {
+      var id = $(file.previewTemplate).find('.dz-remove').attr('id');
+     
+      $.ajax({
+        type: 'DELETE',
+        url: "/photos/" + id,
+        success: function(data) {
+          console.log(data.message);
+        }
+      });
+
+      var previewElement;
+      
+      return (previewElement = file.previewElement) != null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+    },
+    init: function() {
+      var me = this;
+      me.on("complete", function(file) {
+       $(file.previewTemplate).find('.dz-remove').text("削除する");
+      }); 
+      $.ajax({
+       type: "GET",
+       url: "/photos/list",
+       data: {'listing_id': <%= @listing.id %>},
+           dataType: 'json',
+       success: function(data){
+           $.each(data.images, function(key, value) {
+             if (data.images != undefined && data.images.length > 0) {
+               me.emit("addedfile", value);
+               me.emit("thumbnail", value, value.src);
+               me.emit("complete", value);
+               $(value._removeLink).attr("id", value.id);
+             }
+           });
+       }
+      });
+    }
+  });
+});
+</script>
