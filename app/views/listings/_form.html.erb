@@ -1,4 +1,4 @@
-<%= form_with(model: listing, local: true) do |form| %>
+<%= form_with(model: listing, local: true) do |f| %>
   <% if listing.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this room from being saved:</h2>
@@ -10,151 +10,206 @@
       </ul>
     </div>
   <% end %>
+  
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Basic info edit</h2>
+    </div>
 
     <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field form-control">
-          <%= form.label :listing_name %>
-          <%= form.text_field :listing_name, id: :room_listing_name %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Listing Title</label>
+          <%= f.text_field :listing_name, placeholder: "Listing Title Name", class: "form-control", required: "true" %>
         </div>
       </div>
-    </div>
-
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <div class="field form-control">
-        <%= form.label :home_type %>
-        <%= form.text_field :home_type, id: :room_home_type %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 mb-3">
-      <div class="field form-control">
-        <%= form.label :room_type %>
-        <%= form.text_field :room_type, id: :room_room_type %>
-      </div>
-    </div>
-  </div>
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :summary %>
-          <%= form.text_area :summary, id: :room_summary %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :address %>
-          <%= form.text_field :address, id: :room_address %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :is_tv %>
-          <%= form.check_box :is_tv, id: :room_is_tv %>
-        </div>
-
-        <div class="field">
-          <%= form.label :is_kitchen %>
-          <%= form.check_box :is_kitchen, id: :room_is_kitchen %>
-        </div>
-
-        <div class="field">
-          <%= form.label :is_air %>
-          <%= form.check_box :is_air, id: :room_is_air %>
-        </div>
-
-        <div class="field">
-          <%= form.label :is_heating %>
-          <%= form.check_box :is_heating, id: :room_is_heating %>
-        </div>
-
-        <div class="field">
-          <%= form.label :is_internet %>
-          <%= form.check_box :is_internet, id: :room_is_internet %>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :accomodate %>
-          <%= form.number_field :accomodate, id: :room_accomodate %>
-        </div>
-
-        <div class="field">
-          <%= form.label :bedroom %>
-          <%= form.number_field :bedroom, id: :room_bedroom %>
-        </div>
-
-        <div class="field">
-          <%= form.label :bathroom %>
-          <%= form.number_field :bathroom, id: :room_bathroom %>
-        </div>
-
-        <div class="field">
-          <%= form.label :sheet %>
-          <%= form.number_field :sheet, id: :room_sheet %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :price %>
-          <%= form.number_field :price, id: :room_price %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :active %>
-          <%= form.check_box :active, id: :room_active %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Category</label>
+          <div class="styled-select">
+            <%= f.select :listing_type, [["宿泊","宿泊"], ["食事","食事"], ["体験","体験"], ["その他","その他"]], 
+                        { prompt:"選択してください" }, { required: 'true', autofocus: 'true' } %>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :user_id %>
-          <%= form.number_field :user_id, id: :room_user_id %>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Store Type</label>
+          <div class="styled-select">
+            <%= f.select :home_type, [["一軒家","一軒家"], ["店舗","店舗"], ["アパート","アパート"]],
+                        { prompt:"選択してください" }, { required: 'true', autofocus: 'true' } %>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-6 mb-3">
-        <div class="field">
-          <%= form.label :latitude %>
-          <%= form.text_field :latitude, id: :room_latitude %>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Description</label>
+          <%= f.text_area :summary, rows: 8, placeholder: "Listing Description", class: "form-control", required: "true" %>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="field">
-          <%= form.label :longitude %>
-          <%= form.text_field :longitude, id: :room_longitude %>
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Location</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Select City</label>
+          <div class="styled-select">
+          <select>
+            <option>Tokyo</option>
+            <option>New York</option>
+            <option>Los Angeles</option>
+            <option>San Francisco</option>
+          </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Address</label>
+          <%= f.text_field :address, placeholder: "例: 東京都港区六本木1丁目1", class: "form-control", required: "true" %>
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Zip Code</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+    </div>
+    <!-- /row -->
+  </section>
+
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Facility</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :TV %>
+          <%= f.check_box :is_tv, id: :room_is_tv %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Kitchen %>
+          <%= f.check_box :is_kitchen, id: :room_is_kitchen %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :AirCondition %>
+          <%= f.check_box :is_air, id: :room_is_air %>
         </div>
       </div>
     </div>
 
     <div class="row">
-
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Heating %>
+          <%= f.check_box :is_heating, id: :room_is_heating %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Internet %>
+          <%= f.check_box :is_internet, id: :room_is_internet %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+        </div>
+      </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Accomodate %><br/>
+          <%= f.number_field :accomodate, id: :room_accomodate %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Bedroom %><br/>
+          <%= f.number_field :bedroom, id: :room_bedroom %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Bathroom %><br/>
+          <%= f.number_field :bathroom, id: :room_bathroom %>
+        </div>
+      </div>
+    </div>
 
-  <div class="actions btn btn-primary btn-lg btn-block">
-    <%= form.submit %>
-  </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :Sheet %><br/>
+          <%= f.number_field :sheet, id: :room_sheet %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Price</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Price</label>
+          <%= f.text_field :price, placeholder: "例: 10,000", class: "form-control", required: "true" %>円
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="box_general u-pad_bottom_30">
+    <div class="header_box version_2">
+      <h2>Publish</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Publish Setting</label>
+          <div class="styled-select">
+            <%= f.select :active, [["公開する","true"], ["非公開にする","false"]], 
+            { prompt: "選択してください" }, { required: 'true', autofocus: 'true' } %>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p>
+    <%= f.submit "Update", class: "button button--save u-border-rounded" %>
+  </p>
 <% end %>

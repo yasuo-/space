@@ -1,5 +1,183 @@
 <p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Reservations list</li>
+</ol>
+<!-- /Breadcrumbs-->
+<section class="box_general">
+  <div class="header_box">
+    <h2 class="d-inline-block">Reservations list</h2>
+    <div class="filter">
+      <select name="orderby" class="selectbox" sb="24272890" style="display: none;">
+        <option value="Any status">Any status</option>
+        <option value="Approved">Approved</option>
+        <option value="Pending">Pending</option>
+        <option value="Cancelled">Cancelled</option>
+      </select><div id="sbHolder_24272890" class="sbHolder"><a id="sbToggle_24272890" href="#" class="sbToggle"></a><a id="sbSelector_24272890" href="#" class="sbSelector">Any status</a><ul id="sbOptions_24272890" class="sbOptions" style="display: none;"><li><a href="#Any status" rel="Any status" class="sbFocus">Any status</a></li><li><a href="#Approved" rel="Approved">Approved</a></li><li><a href="#Pending" rel="Pending">Pending</a></li><li><a href="#Cancelled" rel="Cancelled">Cancelled</a></li></ul></div>
+    </div>
+  </div>
+
+  <div class="list_general">
+    <ul>
+      <% @reservations.each do |reservation| %>
+        <li>
+          <article>
+            <figure>
+              <% if listing.photos.length > 0 %>
+                <%= image_tag listing.photos[0].image.url(:medium)  %>
+              <% else %>
+                <img src="http://placehold.jp/150x50.png" />
+              <% end %>
+            </figure>
+            <h4 class="listing-title"><%= listing.listing_name%><i class="pending">Pending</i></h4>
+            <ul class="booking_list">
+              <li><strong>Start date</strong> 11 November 2017</li>
+              <li><strong>End date</strong> 11 April 2018</li>
+              <li><strong>Booking details</strong> 2 People</li>
+              <li><strong>Client</strong> Mark Twain</li>
+            </ul>
+            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+            <ul class="buttons">
+              <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+              <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+            </ul>
+          </article>
+        </li>
+      <% end %>
+
+      <li>
+        <figure><img src="http://placehold.jp/150x50.png" alt=""></figure>
+        <h4>Da Alfredo <i class="pending">Pending</i></h4>
+        <ul class="booking_list">
+          <li><strong>Booking date</strong> 10 November 2017</li>
+          <li><strong>Booking details</strong> 2 People</li>
+          <li><strong>Client</strong> Mark Twain</li>
+        </ul>
+        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <ul class="buttons">
+          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+        </ul>
+      </li>
+      <li>
+        <figure><img src="http://placehold.jp/150x50.png" alt=""></figure>
+        <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
+        <ul class="booking_list">
+          <li><strong>Booking date</strong> 11 November 2017</li>
+          <li><strong>Booking details</strong> 2 People</li>
+          <li><strong>Client</strong> Mark Twain</li>
+        </ul>
+        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <ul class="buttons">
+          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+        </ul>
+      </li>
+      <li>
+        <figure><img src="http://placehold.jp/150x50.png" alt=""></figure>
+        <h4>Pompidue Museum <i class="approved">Approved</i></h4>
+        <ul class="booking_list">
+          <li><strong>Booking date</strong> 11 November 2017</li>
+          <li><strong>Booking details</strong> 2 People</li>
+          <li><strong>Client</strong> Mark Twain</li>
+        </ul>
+        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <ul class="buttons">
+          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>  
+</section>
+<!-- /box_general-->
+	  
+<nav aria-label="...">
+  <ul class="pagination pagination-sm add_bottom_30">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+<!-- /pagination-->
+     
+<% if false %>
+
+<h1>Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Home type</th>
+      <th>Room type</th>
+      <th>Summary</th>
+      <th>Address</th>
+      <th>Is tv</th>
+      <th>Is kitchen</th>
+      <th>Is air</th>
+      <th>Is heating</th>
+      <th>Is internet</th>
+      <th>Accomodate</th>
+      <th>Bedroom</th>
+      <th>Bathroom</th>
+      <th>Sheet</th>
+      <th>Price</th>
+      <th>Active</th>
+      <th>User</th>
+      <th>Listing name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.home_type %></td>
+        <td><%= listing.room_type %></td>
+        <td><%= listing.summary %></td>
+        <td><%= listing.address %></td>
+        <td><%= listing.is_tv %></td>
+        <td><%= listing.is_kitchen %></td>
+        <td><%= listing.is_air %></td>
+        <td><%= listing.is_heating %></td>
+        <td><%= listing.is_internet %></td>
+        <td><%= listing.accomodate %></td>
+        <td><%= listing.bedroom %></td>
+        <td><%= listing.bathroom %></td>
+        <td><%= listing.sheet %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.active %></td>
+        <td><%= listing.user_id %></td>
+        <td><%= listing.listing_name %></td>
+        <td><%= listing.latitude %></td>
+        <td><%= listing.longitude %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_room_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+    <%= link_to 'New Room', new_room_path %>
+
+
 <h1>Reservations</h1>
 
 <table>
@@ -41,3 +219,4 @@
 <br>
 
 <%= link_to 'New Reservation', new_reservation_path %>
+<% end %>

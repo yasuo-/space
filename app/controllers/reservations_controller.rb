@@ -1,5 +1,10 @@
 class ReservationsController < ApplicationController
+  layout 'host_application'
   # before_action :set_reservation, only: [:update, :destroy]
+
+  def index
+    @reservations = current_user.reservations.includes(:listing)
+  end
 
   def new
     @listing = Listing.find(params[:listing_id])

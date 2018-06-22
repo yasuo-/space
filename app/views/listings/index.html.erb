@@ -5,19 +5,27 @@
   <li class="breadcrumb-item">
     <a href="#">Dashboard</a>
   </li>
-  <li class="breadcrumb-item active">Bookings list</li>
+  <li class="breadcrumb-item active">Listings list</li>
 </ol>
 <!-- /Breadcrumbs-->
 <section class="box_general">
   <div class="header_box">
-    <h2 class="d-inline-block">Bookings list</h2>
+    <h2 class="d-inline-block">Listings list</h2>
     <div class="filter">
       <select name="orderby" class="selectbox" sb="24272890" style="display: none;">
-        <option value="Any status">Any status</option>
-        <option value="Approved">Approved</option>
+        <option value="All">All</option>
+        <option value="Public">Public</option>
         <option value="Pending">Pending</option>
-        <option value="Cancelled">Cancelled</option>
-      </select><div id="sbHolder_24272890" class="sbHolder"><a id="sbToggle_24272890" href="#" class="sbToggle"></a><a id="sbSelector_24272890" href="#" class="sbSelector">Any status</a><ul id="sbOptions_24272890" class="sbOptions" style="display: none;"><li><a href="#Any status" rel="Any status" class="sbFocus">Any status</a></li><li><a href="#Approved" rel="Approved">Approved</a></li><li><a href="#Pending" rel="Pending">Pending</a></li><li><a href="#Cancelled" rel="Cancelled">Cancelled</a></li></ul></div>
+      </select>
+      <div id="sbHolder_24272890" class="sbHolder">
+        <a id="sbToggle_24272890" href="#" class="sbToggle"></a>
+        <a id="sbSelector_24272890" href="#" class="sbSelector">All</a>
+        <ul id="sbOptions_24272890" class="sbOptions" style="display: none;">
+          <li><a href="#All" rel="All" class="sbFocus">All</a></li>
+          <li><a href="#Public" rel="Public">Public</a></li>
+          <li><a href="#Pending" rel="Pending">Pending</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -28,63 +36,59 @@
           <article>
             <figure>
               <% if listing.photos.length > 0 %>
-                <%= image_tag listing.photos[0].image.url(:medium)  %>
+                <% if false %>
+                <%= image_tag listing.photos[0].photo.url(:middle)  %>
+                <% end %>
+                <img src="http://placehold.jp/150x50.png" />
               <% else %>
                 <img src="http://placehold.jp/150x50.png" />
               <% end %>
             </figure>
-            <h4 class="listing-title"><%= listing.listing_name%><i class="pending">Pending</i></h4>
+            <h4 class="listing-title"><%= listing.listing_name%></h4>
             <ul class="booking_list">
-              <li><strong>Start date</strong> 11 November 2017</li>
-              <li><strong>End date</strong> 11 April 2018</li>
-              <li><strong>Booking details</strong> 2 People</li>
-              <li><strong>Client</strong> Mark Twain</li>
+              <li><strong>写真: 登録済み</strong> <%= link_to "写真を登録する", manage_listing_photos_path(listing), data:{no_turbolink: true} %></li>
+              <li><strong>設備: 登録済み</strong> <%= link_to "設備情報を登録する", manage_listing_facility_path(listing) %></li>
+              <li><strong>料金: <%= listing.price %></strong> <%= link_to "料金を設定する", manage_listing_price_path(listing) %></li>
             </ul>
-            <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+            <p><%= link_to "公開中", manage_listing_publish_path(listing), class: "btn_1 gray" %></p>
             <ul class="buttons">
-              <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-              <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-            </ul>
-            <ul class="buttons u-top_80">
               <li>
-                <%= link_to "編集する", manage_listing_basics_path(listing), class: "btn_1 gray approve" %>
+                <%= link_to "編集する", edit_listing_path(listing), class: "btn_1 gray approve" %>
               </li>
-              <% if false %>
               <li>
                 <%= link_to '削除する', listing, method: :delete, data: { confirm: '削除してもよろしいですか?' }, class: "btn_1 gray delete" %>
               </li>
-              <% end %>
             </ul>
           </article>
         </li>
       <% end %>
 
       <li>
-        <figure><img src="img/item_2.jpg" alt=""></figure>
-        <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
+        <figure><img src="http://placehold.jp/150x50.png" alt=""></figure>
+        <h4>Da Alfredo</h4>
         <ul class="booking_list">
-          <li><strong>Booking date</strong> 11 November 2017</li>
-          <li><strong>Booking details</strong> 2 People</li>
-          <li><strong>Client</strong> Mark Twain</li>
+          <li><strong>create date</strong> 11 November 2017</li>
+          <li><strong>check details</strong></li>
+          <li><strong>host</strong> Mark Twain</li>
         </ul>
-        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <p><a href="#0" class="btn_1 gray">公開中</a></p>
         <ul class="buttons">
-          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+          <li><a href="#0" class="btn_1 gray approve">編集する</a></li>
+          <li><a href="#0" class="btn_1 gray delete">削除する</a></li>
         </ul>
       </li>
       <li>
-        <figure><img src="img/item_3.jpg" alt=""></figure>
-        <h4>Pompidue Museum <i class="approved">Approved</i></h4>
+        <figure><img src="http://placehold.jp/150x50.png" alt=""></figure>
+        <h4>Pompidue Museum</h4>
         <ul class="booking_list">
           <li><strong>Booking date</strong> 11 November 2017</li>
           <li><strong>Booking details</strong> 2 People</li>
           <li><strong>Client</strong> Mark Twain</li>
         </ul>
-        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+        <p><a href="#0" class="btn_1 gray">未公開</a></p>
         <ul class="buttons">
-          <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-          <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+          <li><a href="#0" class="btn_1 gray approve">編集する</a></li>
+          <li><a href="#0" class="btn_1 gray delete">削除する</a></li>
         </ul>
       </li>
     </ul>
