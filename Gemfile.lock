@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: c7f21a067151d46678974d06261ad06684268047
+  revision: b5e25b13efb0f6ec1fce82cc8b6861a61018d664
   branch: master
   specs:
     faker (1.8.7)
@@ -48,14 +48,14 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    annotate (2.7.2)
+    annotate (2.7.4)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 13.0)
     arel (8.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.6.2)
+    autoprefixer-rails (8.6.3)
       execjs
-    bcrypt (3.1.11)
+    bcrypt (3.1.12)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -66,7 +66,7 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
-    brakeman (4.2.1)
+    brakeman (4.3.1)
     builder (3.2.3)
     bullet (5.7.5)
       activesupport (>= 3.0.0)
@@ -96,7 +96,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
-    database_cleaner (1.6.2)
+    database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     devise (4.4.3)
       bcrypt (~> 3.0)
@@ -108,34 +108,35 @@ GEM
       devise (> 3.5.2, < 4.5)
       rails (< 6)
     diff-lcs (1.3)
-    dotenv (2.2.2)
-    dotenv-rails (2.2.2)
-      dotenv (= 2.2.2)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
     dropzonejs-rails (0.8.2)
       rails (> 3.1)
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
-    factory_bot (4.8.2)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
-    factory_bot_rails (4.8.2)
-      factory_bot (~> 4.8.2)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.23)
-    fog-aws (2.0.1)
-      fog-core (~> 1.38)
-      fog-json (~> 1.0)
+    ffi (1.9.25)
+    fog-aws (3.0.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-core (1.45.0)
+    fog-core (2.1.0)
       builder
       excon (~> 0.58)
       formatador (~> 0.2)
-    fog-json (1.0.2)
-      fog-core (~> 1.0)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
       multi_json (~> 1.10)
     fog-xml (0.1.3)
       fog-core
@@ -144,22 +145,18 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.5.7)
-    i18n (1.0.0)
+    i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-<<<<<<< HEAD
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.1.0)
-=======
->>>>>>> c8d61ddfc357db8a0a8d6ffbeb2b0892ca3e428f
     jwt (1.5.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -183,8 +180,8 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    nio4r (2.3.0)
-    nokogiri (1.8.2)
+    nio4r (2.3.1)
+    nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
     oauth (0.5.4)
     oauth2 (1.4.0)
@@ -233,7 +230,7 @@ GEM
     pg (1.0.0)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
-    powerpack (0.1.1)
+    powerpack (0.1.2)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -241,7 +238,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.11.4)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-cors (1.0.2)
     rack-mini-profiler (1.0.0)
       rack (>= 1.2.0)
@@ -341,7 +338,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.11.0)
+    selenium-webdriver (3.12.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     spring (2.0.2)
@@ -349,7 +346,7 @@ GEM
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
-    sprockets (3.7.1)
+    sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -370,13 +367,13 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.9)
+    uglifier (4.1.12)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.3.0)
+    unicode-display_width (1.4.0)
     uniform_notifier (1.11.0)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.6.0)
+    web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
@@ -385,7 +382,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
     woothee (1.7.0)
-    xpath (3.0.0)
+    xpath (3.1.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
@@ -409,12 +406,8 @@ DEPENDENCIES
   dotenv-rails
   dropzonejs-rails
   factory_bot_rails
-<<<<<<< HEAD
   faker!
-  fog
-=======
   fog-aws
->>>>>>> c8d61ddfc357db8a0a8d6ffbeb2b0892ca3e428f
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
