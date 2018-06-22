@@ -1,6 +1,11 @@
-<h1>Editing Room</h1>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Edit listing</li>
+</ol>
+<!-- /Breadcrumbs-->
 
-<%= render 'form', room: @listing %>
+<%= render 'form', listing: @listing %>
 
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', rooms_path %>
