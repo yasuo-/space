@@ -25,6 +25,7 @@
   </ul>
 </nav>
 <% if user_signed_in? %>
+ <%= link_to "プロフィール",  user_path(current_user), class: "btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" %>
 <% else %>
-<%= link_to "ログイン", new_user_session_path, class: "btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" %>
+ <%= link_to "ログイン", new_user_session_path, class: "btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" %>
 <% end %>

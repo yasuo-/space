@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
   }
+  resources :users, only: [:show, :edit]
+
   resources :reservations
   resources :listings do
     resources :reservations, only: [:new, :create]
