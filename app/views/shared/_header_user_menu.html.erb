@@ -1,6 +1,8 @@
 <nav class="my-2 my-md-0 mr-md-3">
   <ul class="navbar-nav bd-navbar-nav flex-row">
+    <% if user_signed_in? %>
     <li><%= link_to "リスティング登録", new_listing_path, class: "p-2 text-dark" %></li>
+    <% end %>
     <li><a href="#" class="p-2 text-dark">利用の流れ</a></li>
     <% if user_signed_in? %>
       <li>
@@ -10,10 +12,16 @@
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle p-2 text-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <% if current_user.provider.present? %>
+            <%= image_tag current_user.image, class:"img-circle profile-0" %>
+            <%= current_user.name %>
+          <% else %>
+            <%= current_user.email.split("@")[0] %>
+          <% end %>
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><%= link_to "プロフィール編集",  edit_user_registration_path %></li>
+          <li><%= link_to "プロフィール",  user_path(current_user) %></li>
           <li><%= link_to "リスティング管理",  listings_path %></li>
           <li><%= link_to "booking",  reservations_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -21,11 +29,7 @@
       </li>
     <% else %>
       <li><%= link_to "アカウント作成", new_user_registration_path, class: "p-2 text-dark" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class: "p-2 text-dark" %></li>
     <% end %>
   </ul>
 </nav>
-<% if user_signed_in? %>
- <%= link_to "プロフィール",  user_path(current_user), class: "btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" %>
-<% else %>
- <%= link_to "ログイン", new_user_session_path, class: "btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" %>
-<% end %>

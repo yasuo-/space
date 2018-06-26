@@ -1,31 +1,20 @@
 class ReservationsController < ApplicationController
-  layout 'host_application'
-  # before_action :set_reservation, only: [:update, :destroy]
-
   def index
     @reservations = current_user.reservations.includes(:listing)
   end
 
-  def new
-    @listing = Listing.find(params[:listing_id])
-    @user = current_user
-    @start_date = params[:reservation][:start_date]
-    @end_date = params[:reservation][:end_date]
-    @price = params[:reservation][:price]
-    @total_price = params[:reservation][:total_price]
-  end
-
-  # POST /reservations or POST /reservations.json
   def create
-    @reservation = current_user.reservation.create(reservation_params)
-
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation.listing, notice: '予約が完了しました.' }
-        format.json { render :show, status: :created, location: @reservation.listing }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+    @listing = Listing.find(params[:listing_id])
+    if current_user == @listing.user
+    else
+      @reservation = current_user.reservations.create(reservation_params)
+      respond_to do |format|
+        if @reservation.save
+          format.html { redirect_to explorer_path(params[:listing_id]), notice: '予約が完了しました.' }
+          format.json { render :show, status: :created, location: @reservation.listing }
+        else
+          render json: @reservation.errors, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -52,6 +41,21 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def setdate
+    listing = Listing.find(params[:listing_id])
+    today = Date.today
+    reservations = listing.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def duplicate
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+    result = { duplicate: is_duplicate(start_date, end_date) }
+    render json: result
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -61,6 +65,18 @@ class ReservationsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def reservation_params
-    params.require(:reservation).permit(:user_id, :room_id, :start_date, :end_date, :start_time, :end_time, :price, :total, :menu)
+    params.require(:reservation).permit(:user_id,
+                                        :listing_id,
+                                        :start_date,
+                                        :end_date,
+                                        :price,
+                                        :total_price,
+                                        :menu)
+  end
+
+  def is_duplicate(start_date, end_date)
+    listing =Listing.find(params[:listing_id])
+    check = listing.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
+    check.size > 0? true : false
   end
 end

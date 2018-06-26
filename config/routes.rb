@@ -9,10 +9,16 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show, :edit]
 
-  resources :reservations
-  resources :listings do
-    resources :reservations, only: [:new, :create]
+  resources :explorers, only: [:index, :show] do
+    resources :reservations, only: [:create]
   end
+  resources :listings do
+    resources :reservations, only: [:create]
+  end
+
+  resources :reservations, only: [:index]
+  get '/setdate', to: 'reservations#setdate'
+  get '/duplicate', to: 'reservations#duplicate'
 
   resources :photos, only: [:create, :destroy] do
     collection do

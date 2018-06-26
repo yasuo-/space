@@ -1,11 +1,13 @@
-<%= render 'partial/navbar' %>
+
 
 <div class="container">
   <!-- listing content -->
   <div class="col-md-8 col-md-offset-2">
     <div class="thumbnail">
+      <% if false %>
       <%= image_tag @listing.photos[0].image.url %>
       <%= image_tag @listing.user.image,class:"img-circle profile-1 row-space-top-3" %>
+      <% end %>
       <div class="caption">
         <h4 class="text-center row-space-4">ホスト名: <%= @listing.user.name %></h4>
         <h4 class="text-center row-space-4">リスティングタイトル:<%= @listing.listing_name %></h4>
@@ -32,8 +34,6 @@
         <%= form_for([@listing, @listing.reservations.new]) do |f| %>
 
             <%= hidden_field_tag :token %>
-
-            <!-- hashでまとめて送れないから、またパラメータを作る -->
             <%= f.hidden_field :start_date, value: @start_date %>
             <%= f.hidden_field :end_date, value: @end_date %>
             <%= f.hidden_field :listing_id, value: @listing.id %>
