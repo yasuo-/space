@@ -13,7 +13,7 @@
           </a>
         </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Messages">
-          
+
           <a class="nav-link" href="messages.html">
             <i class="fa fa-fw fa-envelope-open"></i>
             <span class="nav-link-text">Messages</span>
@@ -50,10 +50,10 @@
       <% end %>
     </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="My profile">
-      <a class="nav-link" href="user-profile.html">
+      <%= link_to user_path(current_user), class: "nav-link" do %>
         <i class="fa fa-fw fa-user"></i>
         <span class="nav-link-text">Profile</span>
-      </a>
+      <% end %>
     </li>
 
       </ul>

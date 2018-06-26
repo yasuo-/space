@@ -7,10 +7,18 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
   }
-  resources :reservations
-  resources :listings do
-    resources :reservations, only: [:new, :create]
+  resources :users, only: [:show, :edit]
+
+  resources :explorers, only: [:index, :show] do
+    resources :reservations, only: [:create]
   end
+  resources :listings do
+    resources :reservations, only: [:create]
+  end
+
+  resources :reservations, only: [:index]
+  get '/setdate', to: 'reservations#setdate'
+  get '/duplicate', to: 'reservations#duplicate'
 
   resources :photos, only: [:create, :destroy] do
     collection do
