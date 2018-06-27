@@ -4,7 +4,7 @@ RSpec.describe "host/rooms/index", type: :view do
   before(:each) do
     assign(:host_rooms, [
       Host::Room.create!,
-      Host::Room.create!,
+      Host::Room.create!
     ])
   end
 

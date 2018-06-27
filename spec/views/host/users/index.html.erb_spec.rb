@@ -4,7 +4,7 @@ RSpec.describe "host/users/index", type: :view do
   before(:each) do
     assign(:host_users, [
       Host::User.create!,
-      Host::User.create!,
+      Host::User.create!
     ])
   end
 
