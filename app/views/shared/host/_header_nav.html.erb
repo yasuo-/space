@@ -5,44 +5,43 @@
 <!-- nav-button-wrap end-->
 <!--  navigation -->
 <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
-          <%= link_to  class:"nav-link" do %>
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
-          <% end %>
-        </li>
-		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Messages">
-
-          <a class="nav-link" href="messages.html">
-            <i class="fa fa-fw fa-envelope-open"></i>
-            <span class="nav-link-text">Messages</span>
-          </a>
-        </li>
-		    <li class="nav-item">
-          <%= link_to reservations_path, class: "nav-link" do %>
-            <i class="fa fa-fw fa-calendar-check-o"></i>
-            <span class="nav-link-text">Reserves <span class="badge badge-pill badge-primary">0 New</span></span>
-          <% end %>
-        </li>
-		    <li class="nav-item">
-          <%= link_to listings_path, class: "nav-link" do %>
-            <i class="fa fa-fw fa-list"></i>
-            <span class="nav-link-text">My listings</span>
-          <% end %>
-        </li>
-		    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Reviews">
-          <a class="nav-link" href="reviews.html">
-            <i class="fa fa-fw fa-star"></i>
-            <span class="nav-link-text">Reviews</span>
-          </a>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookmarks">
-          <a class="nav-link" href="bookmarks.html">
-            <i class="fa fa-fw fa-heart"></i>
-            <span class="nav-link-text">Bookmarks</span>
-          </a>
-        </li>
+  <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+      <%= link_to  class:"nav-link" do %>
+        <i class="fa fa-fw fa-dashboard"></i>
+        <span class="nav-link-text">Dashboard</span>
+      <% end %>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Messages">
+      <a class="nav-link" href="messages.html">
+        <i class="fa fa-fw fa-envelope-open"></i>
+        <span class="nav-link-text">Messages</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <%= link_to reservations_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-calendar-check-o"></i>
+        <span class="nav-link-text">Reserves <span class="badge badge-pill badge-primary">0 New</span></span>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to listings_path, class: "nav-link" do %>
+        <i class="fa fa-fw fa-list"></i>
+        <span class="nav-link-text">My Listings</span>
+      <% end %>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Reviews">
+      <a class="nav-link" href="reviews.html">
+        <i class="fa fa-fw fa-star"></i>
+        <span class="nav-link-text">Reviews</span>
+      </a>
+    </li>
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Bookmarks">
+      <a class="nav-link" href="bookmarks.html">
+        <i class="fa fa-fw fa-heart"></i>
+        <span class="nav-link-text">Bookmarks</span>
+      </a>
+    </li>
 		<li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add listing">
       <%= link_to new_listing_path, class: "nav-link" do %>
         <i class="fa fa-fw fa-plus-circle"></i>
@@ -55,100 +54,99 @@
         <span class="nav-link-text">Profile</span>
       <% end %>
     </li>
-
-      </ul>
-      <ul class="navbar-nav sidenav-toggler">
+  </ul>
+    <ul class="navbar-nav sidenav-toggler">
+      <li class="nav-item">
+        <a class="nav-link text-center" id="sidenavToggler">
+          <i class="fa fa-fw fa-angle-left"></i>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-fw fa-envelope"></i>
+          <span class="d-lg-none">Messages
+            <span class="badge badge-pill badge-primary">12 New</span>
+          </span>
+          <span class="indicator text-primary d-none d-lg-block">
+            <i class="fa fa-fw fa-circle"></i>
+          </span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+          <h6 class="dropdown-header">New Messages:</h6>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <strong>David Miller</strong>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <strong>Jane Smith</strong>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <strong>John Doe</strong>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item small" href="#">View all messages</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-fw fa-bell"></i>
+          <span class="d-lg-none">Alerts
+            <span class="badge badge-pill badge-warning">6 New</span>
+          </span>
+          <span class="indicator text-warning d-none d-lg-block">
+            <i class="fa fa-fw fa-circle"></i>
+          </span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+          <h6 class="dropdown-header">New Alerts:</h6>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <span class="text-success">
+              <strong>
+                <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+            </span>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <span class="text-danger">
+              <strong>
+                <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+            </span>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">
+            <span class="text-success">
+              <strong>
+                <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+            </span>
+            <span class="small float-right text-muted">11:21 AM</span>
+            <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item small" href="#">View all alerts</a>
+        </div>
+      </li>
+      <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
+        　<%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <% end%>
         </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-envelope"></i>
-            <span class="d-lg-none">Messages
-              <span class="badge badge-pill badge-primary">12 New</span>
-            </span>
-            <span class="indicator text-primary d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">New Messages:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>David Miller</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>Jane Smith</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>John Doe</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all messages</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-fw fa-bell"></i>
-            <span class="d-lg-none">Alerts
-              <span class="badge badge-pill badge-warning">6 New</span>
-            </span>
-            <span class="indicator text-warning d-none d-lg-block">
-              <i class="fa fa-fw fa-circle"></i>
-            </span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-danger">
-                <strong>
-                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <span class="text-success">
-                <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
-              </span>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">View all alerts</a>
-          </div>
-        </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-          　<%= link_to destroy_user_session_path, class: "nav-link", method: :delete do %>
-              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-            <% end%>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+      <% end %>
+    </ul>
+  </div>
 <!-- navigation  end -->
