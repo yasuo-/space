@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  has_many :photos
-  has_many :reservations
+  has_many :photos,       dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   # validates :home_type, :listing_type, :accomodate, :bedroom, :bathroom, :listing_name, :summary, :address, presence: true
   validates :home_type, presence: true
