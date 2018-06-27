@@ -6,11 +6,31 @@ class ReservationsController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id])
     if current_user == @listing.user
+      old_selected_dates = []
+      select_dates = params[:reservation][:selfReservedDates].split(',')
+      reservations_by_self = @listing.reservations.where(user_id: current_user.id)
+      reservations_by_self.each do |reservation|
+        old_selected_dates.push(reservation.start_date)
+      end
+
+      old_selected_dates&.each do |date|
+          @reservation = current_user.reservations.where(start_date: date, end_date: date)
+          @reservation.destroy_all
+        end
+
+      select_dates&.each do |date|
+          current_user.reservations.create(listing_id: @listing.id,
+                                           start_date: date,
+                                           end_date: date,
+                                           self_booking: true)
+        end
+
+      redirect_back(fallback_location: root_path, notice: '予約が完了しました.')
     else
       @reservation = current_user.reservations.create(reservation_params)
       respond_to do |format|
         if @reservation.save
-          format.html { redirect_to explorer_path(params[:listing_id]), notice: '予約が完了しました.' }
+          format.html { redirect_back(fallback_location: root_path, notice: '予約が完了しました.') }
           format.json { render :show, status: :created, location: @reservation.listing }
         else
           render json: @reservation.errors, status: :unprocessable_entity
@@ -43,7 +63,7 @@ class ReservationsController < ApplicationController
 
   def setdate
     listing = Listing.find(params[:listing_id])
-    today = Date.today
+    today = Time.zone.today
     reservations = listing.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 
     render json: reservations
@@ -77,6 +97,6 @@ class ReservationsController < ApplicationController
   def is_duplicate(start_date, end_date)
     listing =Listing.find(params[:listing_id])
     check = listing.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
-    check.size > 0? true : false
+    check.size > 0
   end
 end
