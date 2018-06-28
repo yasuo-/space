@@ -11,6 +11,9 @@ class User < ApplicationRecord
   #                 uniqueness: { case_sensitive: false },
   #                 format: { with: /\A[a-z0-9]+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
 
+  has_attached_file :image, styles: { medium: "400x400>", thumb: "100x100>" }, default_url: "/assets/icons/icon_user_default.svg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

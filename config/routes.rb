@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: "users/registrations"
   }
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show]
 
   resources :explorers, only: [:index, :show] do
     resources :reservations, only: [:create]
@@ -45,6 +45,6 @@ Rails.application.routes.draw do
 
 
   namespace :host do
-    resources :users
+    resources :users, only: [:show]
   end
 end

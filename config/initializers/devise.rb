@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0c612338a30306344e3b5d4b730dec64c4d2478196b6fe3b70d6f62e3c344881cb0c2448d200412bdda6aeb8dedd00d9b5ce094700e12294d5891d79bbed2547'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -261,7 +261,8 @@ Devise.setup do |config|
                   ENV['APP_ID'],
                   ENV['APP_SECRET'],
                   scope: 'email',
-                  fields: 'email, name'
+                  fields: 'email, name',
+                  secure_image_url: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

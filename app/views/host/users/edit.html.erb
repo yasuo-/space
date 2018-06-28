@@ -1,6 +1,21 @@
-<h1>Editing Host User</h1>
+<p id="notice"><%= notice %></p>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Edit Profile</li>
+</ol>
+<!-- /Breadcrumbs-->
 
-<%= render 'form', host_user: @host_user %>
+<section class="box_general u-pad_bottom_30">
+  <div class="header_box version_2">
+    <h2>Edit Profile</h2>
+  </div>
+  <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @host_user %> |
-<%= link_to 'Back', host_users_path %>
+</section>
+
+
+
+<%= link_to 'Back', user_path(current_user) %>
