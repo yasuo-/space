@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :reservations, only: [:index]
-  get '/setdate', to: 'reservations#setdate'
+  get '/reserved',  to:'host/reservations#reserved'
+  get '/setdate',   to: 'reservations#setdate'
   get '/duplicate', to: 'reservations#duplicate'
 
   resources :photos, only: [:create, :destroy] do
@@ -45,6 +46,5 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :users
-    resources :rooms
   end
 end

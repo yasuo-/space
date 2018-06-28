@@ -1,8 +1,19 @@
+
+<br />
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="breadcrumb-item active">Reserved</li>
+</ol>
+<!-- /Breadcrumbs-->
+
 <p id="notice"><%= notice %></p>
 
-<section class="box_general box-90">
+<section class="box_general">
   <div class="header_box">
-    <h2 class="d-inline-block">予約予定一覧 <span>(Reservations)</span></h2>
+    <h2 class="d-inline-block">予約を受けた一覧 <span>(Reserved)</span></h2>
     <% if false %>
     <div class="filter">
       <select name="orderby" class="selectbox" sb="">
@@ -16,20 +27,20 @@
   </div>
 
   <div class="list_general">
-    <% if @reservations.length > 1 %>
+    <% if @listings.length > 1 %>
     <ul>
-      <% @reservations.each do |reservation| %>
+      <% @listings.each do |listing| %>
         <li>
           <article>
             <figure>
-              <% if reservation.listing.photos.length > 0 %>
-                <%= image_tag reservation.listing.photos[0].image.url(:medium)  %>
+              <% if listing.listing.photos.length > 0 %>
+                <%= image_tag listing.listing.photos[0].image.url(:medium)  %>
               <% else %>
                 <img src="http://placehold.jp/150x50.png" />
               <% end %>
             </figure>
             <h4 class="listing-title">
-              <%= reservation.listing.listing_name %>
+              <%= listing.listing.listing_name %>
               <% if false %>
               <i class="cancel">Cancelled</i>
               <i class="pending">Pending</i>
@@ -37,14 +48,14 @@
               <% end %>
             </h4>
             <ul class="booking_list">
-              <li><strong>Start date</strong><%= reservation.start_date.strftime('%Y年%m月%d日〜') %></li>
-              <li><strong>End date</strong><%= reservation.end_date.strftime('%Y年%m月%d日') %></li>
+              <li><strong>Start date</strong><%= listing.start_date.strftime('%Y年%m月%d日〜') %></li>
+              <li><strong>End date</strong><%= listing.end_date.strftime('%Y年%m月%d日') %></li>
               <li><strong>Booking details</strong> 2 People</li>
               <li>
                 <strong>Client</strong>
-                <%= link_to user_path(reservation.listing.user) do %>
-                  <%= image_tag reservation.listing.user.image, width: 40 %>
-                  <%= reservation.listing.user.name %>
+                <%= link_to user_path(listing.listing.user) do %>
+                  <%= image_tag listing.listing.user.image, width: 40 %>
+                  <%= listing.listing.user.name %>
                 <% end %>
               </li>
             </ul>
@@ -59,14 +70,14 @@
     </ul>
     <% else %>
       <hr />
-      <br />
       <p>予約はありません</p>
+      <br />
     <% end %>
   </div>
 </section>
 <!-- /box_general-->
 
-<nav aria-label="..." class="box-90">
+<nav aria-label="..." class="">
   <ul class="pagination pagination-sm add_bottom_30">
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1">Previous</a>
