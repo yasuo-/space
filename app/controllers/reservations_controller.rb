@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = current_user.reservations.includes(:listing)
+    @reservations = current_user.reservations.where(self_booking: nil)
   end
 
   def create
