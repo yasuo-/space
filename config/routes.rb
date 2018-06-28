@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#index"
   get 'pages/show'
+  get 'search',  to: 'pages#search'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :reservations, only: [:index]
-  get '/reserved',  to:'host/reservations#reserved'
+  get '/reserved',  to: 'host/reservations#reserved'
   get '/setdate',   to: 'reservations#setdate'
   get '/duplicate', to: 'reservations#duplicate'
 
