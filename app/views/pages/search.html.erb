@@ -20,20 +20,42 @@
       center: { lat: <%= @latitude %>, lng: <%= @longitude %> },
       zoom: 13
     });
-    var card = document.getElementById('pac-card');
+
     var input = document.getElementById('pac-input');
-    var types = document.getElementById('type-selector');
-    var strictBounds = document.getElementById('strict-bounds-selector');
-
-    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-
     var autocomplete = new google.maps.places.Autocomplete(input);
+    var makers = [];
+    var infowindow = [];
 
-    // Bind the map's bounds (viewport) property to the autocomplete object,
-    // so that the autocomplete requests use the current map bounds for the
-    // bounds option in the request.
-    autocomplete.bindTo('bounds', map);
+    <% @listings.each do |listing| %>
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(<%= listing.latitude %>, <%= listing.longitude %>)
+        map: map
+      });
 
+      makers.push(marker);
+      marker.addListener('click', function() {
+      <% if !listing.photos.blank? %>
+        var content = "<div>" + '<a href="/listings/' + <%= listing.id %> +'">' + "<img src="+"<%= listing.photos[0].image.url(:thumb) %>" + " " + "style='width: 100%;height: 150px;'" +"alt='139'>" + "</a>" + '<br>' + "<h5><%= listing.listing_title %></h5>" + "<div class="+"col-md-12"+">"+"<h4>Reviews <span class="+"average_rating_listing"+"></span>"+"(<%= listing.reviews.count %>)"+"</h4></div>";
+      <% end %>
+
+      var infowindow = new google.maps.InfoWindow({
+        content: content,
+        maxWidth: 280
+      });
+
+      infowindow.open(map, this);
+      infowindows.push(infowindow);
+
+      google.maps.event.addListener(infowindow, 'domready', function() {
+    /*    $('.average_rating_listing').raty({
+          path: '/assets',
+          readOnly: true,
+          score: <%= listing.average_star_rate %>
+        });*/
+      });
+    });
+    <% end %>
+/**
     var infowindow = new google.maps.InfoWindow();
     var infowindowContent = document.getElementById('infowindow-content');
     infowindow.setContent(infowindowContent);
@@ -98,6 +120,7 @@
           autocomplete.setOptions({strictBounds: this.checked});
         });
   }
+  */
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX3asr2iXPgbGYkO58mYdSNX58rPIzd1U&libraries=places&callback=initMap"
     async defer></script>
