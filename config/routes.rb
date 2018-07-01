@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :listings do
     resources :reservations, only: [:create]
+    resources :reviews,      only: [:create, :destroy]
   end
 
   resources :reservations, only: [:index]

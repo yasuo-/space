@@ -1,0 +1,33 @@
+<% if @reviews.count == 0 %>
+  <div class="text-center">
+    <h4>There is no review yet</h4>
+  </div>
+<% else %>
+<% @reviews.order("id desc").each do |review| %>
+<div class="review-box clearfix">
+  <figure class="rev-thumb">
+    <%= image_tag review.user.image, class: "", width: 64 %>
+  </figure>
+  <div class="rev-content">
+    <div class="rating">
+      <i class="icon_star voted"></i>
+      <i class="icon_star voted"></i>
+      <i class="icon_star voted"></i>
+      <i class="icon_star voted"></i>
+      <i class="icon_star"></i>
+    </div>
+    <div class="rev-info">
+      <%= review.user.name %> – <%= review.created_at.strftime("%Y年%m月%d日") %>
+    </div>
+    <div class="rev-text">
+      <p><%= review.description %></p>
+      <span class="pull-right">
+        <%= link_to "削除する",[@listing,review],method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger" if current_user && current_user = review.user %>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- /review-box -->
+<%end%>
+<% end %>
