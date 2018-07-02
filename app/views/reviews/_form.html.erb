@@ -1,0 +1,23 @@
+<%= form_for([@listing, @listing.reviews.new]) do |f| %>
+  <section class="box_general u-pad_bottom_30">
+    <div id="rate_stars"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group col-md-12">
+          <%= f.text_field :description, rows: 3, class: "form-control", style: "height:130px;" %>
+        </div>
+      </div>
+  </section>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
+  <p>
+    <%= f.submit "Review", class: "button button--save u-border-rounded" %>
+  </p>
+<% end %>
+
+<script type="text/javascript">
+  $("#rate_stars").raty({
+      path: '/assets/icons',
+      scoreName: 'review[rate]',
+      score: 1
+  });
+</script>
