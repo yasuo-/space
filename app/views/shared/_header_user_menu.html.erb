@@ -6,9 +6,9 @@
     <li><a href="#" class="p-2 text-dark">利用の流れ</a></li>
     <% if user_signed_in? %>
       <li>
-        <a href="#" class="p-2 text-dark">
-            <i class="fa fa-envelope"></i> メッセージ
-        </a>
+        <%= link_to conversations_path, class: "p-2 text-dark" do %>
+          <i class="fa fa-envelope"></i> メッセージ
+        <% end %>
       </li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle p-2 text-dark" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

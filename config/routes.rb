@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
   get 'manegelisting/:id/basics',      to: 'listings#basics',      as: 'manage_listing_basics'
   get 'manegelisting/:id/summary',     to: 'listings#summary',     as: 'manage_listing_summary'
   get 'manegelisting/:id/address',     to: 'listings#address',     as: 'manage_listing_address'
