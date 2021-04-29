@@ -1,0 +1,44 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: excon
+    versions:
+    - 0.78.1
+    - 0.79.0
+    - 0.80.1
+  - dependency-name: stripe
+    versions:
+    - 5.29.0
+    - 5.29.1
+    - 5.30.0
+    - 5.31.0
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.1
+    - 1.11.2
+  - dependency-name: rspec-rails
+    versions:
+    - 4.0.2
+    - 4.1.0
+    - 5.0.0
+  - dependency-name: capybara
+    versions:
+    - 3.35.1
+  - dependency-name: loofah
+    versions:
+    - 2.9.0
+  - dependency-name: devise_token_auth
+    versions:
+    - 1.1.4
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "20:00"
+  open-pull-requests-limit: 10
